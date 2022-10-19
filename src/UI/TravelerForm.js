@@ -43,7 +43,7 @@ function TravelerForm() {
   const [verification, setVerification] = useState({})
   const [errMessage, setErrMessage] = useState('')
   const [toggleForm, setToggleForm] = useState(false)
-  const [hotelDetails, sethotelDetails] = useState({})
+  const [boardingPassDetails, setBoardingPassDetails] = useState({})
 
   const effectRan = useRef()
   const newForm = useRef()
@@ -150,116 +150,101 @@ function TravelerForm() {
         switch(option) {
           case 'option_one':
             console.log(option)
-            sethotelDetails({
-              one_title: 'Mr',
-              one_address: '1234 Woodscross Way',
-              one_city: 'Scranton',
-              one_postal_code: '85921',
-              one_state: 'Pennsylvania',
-              one_place_of_birth: 'Los Angeles',
-              one_email: 'mike_scarn@dunder.com',
-              one_phone_number: '801-553-1233',
-              one_anniversary_date: '1999-01-08',
-              one_occasion: 'Vacation',
-              two_title: 'Mrs',
-              two_first_name: 'Jane',
-              two_last_name: 'Doe',
-              two_address: '555 John Stockton Street',
-              two_city: 'Miami',
-              two_postal_code: '87552',
-              two_state: 'Florida',
-              two_country: 'USA',
-              two_date_of_birth: '1990-04-04',
-              two_place_of_birth: 'USA',
-              two_email: 'pam@mifflin.com',
-              two_phone_number: '801-999-2231',
-              two_anniversary_date: '1995-11-11',
-              two_occasion: 'Work',
-              hotel_repeat_guest: 'No',
-              hotel_check_in_date: '2022-09-25',
-              hotel_check_out_date: '2022-09-30',
-              hotel_arrival_date: '2022-09-25',
-              hotel_arrival_flight: 'Delta',
-              hotel_departure_date: '2022-09-30',
-              hotel_departure_flight: 'American',
-              hotel_notes: 'No notes as of now',
+            setBoardingPassDetails({
+              passenger_given_names: 'John',
+              passenger_family_names: 'Doe',
+              passenger_image: 'blank', 
+              airline_alliance: 'Sky Team', 
+              passenger_tsa_precheck: 'Yes',
+              booking_reference_number: '55589', 
+              ticket_eticket_number: '109420123',
+              ticket_designated_carrier: 'Delta',
+              ticket_operating_carrier: 'Spirit Air',
+              ticket_flight_number: '15294',
+              ticket_class: 'Economy',
+              ticket_seat_number: '15B',
+              ticket_exit_row: 'No',
+              ticket_origin: 'USA',
+              ticket_destination: 'France',
+              ticket_special_service_request: 'No', 
+              ticket_with_infant: 'Yes',
+              ticket_luggage: 'Yes', 
+              boarding_gate: '54',
+              boarding_zone_group: '1', 
+              boarding_secondary_screening: 'No', 
+              boarding_date_time: '23:31:00', 
+              boarding_departure_date_time: '19:05:00', 
+              boarding_arrival_date_time: '08:35:00', 
+              frequent_flyer_airline: 'American',
+              frequent_flyer_number: '9080',
+              frequent_flyer_status: 'Silver',
             })
   
           break;
           
           case 'option_two':
             console.log(option)
-            sethotelDetails({
-              one_title: 'Mr',
-              one_address: '321 Forest Drive',
-              one_city: 'Provo',
-              one_postal_code: '11421',
-              one_state: 'Utah',
-              one_place_of_birth: 'USA',
-              one_email: 'hello@gmail.com',
-              one_phone_number: '801-995-2230',
-              one_anniversary_date: '1982-09-04',
-              one_occasion: 'Work',
-              two_title: 'Ms',
-              two_first_name: 'Sally',
-              two_last_name: 'Wynn',
-              two_address: '623 Snow Way',
-              two_city: 'Dallas',
-              two_postal_code: '84502',
-              two_state: 'Texas',
-              two_country: 'USA',
-              two_date_of_birth: '1975-04-05',
-              two_place_of_birth: 'USA',
-              two_email: 'hi@gmail.com',
-              two_phone_number: '801-685-8890',
-              two_anniversary_date: '1990-12-12',
-              two_occasion: 'Vacation',
-              hotel_repeat_guest: 'No',
-              hotel_check_in_date: '2022-09-26',
-              hotel_check_out_date: '2022-09-28',
-              hotel_arrival_date: '2022-09-26',
-              hotel_arrival_flight: 'Spirit',
-              hotel_departure_date: '2022-09-28',
-              hotel_departure_flight: 'Singapore',
-              hotel_notes: 'Customer is king',
+            setBoardingPassDetails({
+              passenger_given_names: 'Jill',
+              passenger_family_names: 'Cassidy',
+              passenger_image: 'blank', 
+              airline_alliance: 'Star Alliance', 
+              passenger_tsa_precheck: 'Yes',
+              booking_reference_number: '7778', 
+              ticket_eticket_number: '7240182',
+              ticket_designated_carrier: 'Asiana',
+              ticket_operating_carrier: 'Singapore Air',
+              ticket_flight_number: '155112',
+              ticket_class: 'First Class',
+              ticket_seat_number: '55A',
+              ticket_exit_row: 'No',
+              ticket_origin: 'England',
+              ticket_destination: 'Thailand',
+              ticket_special_service_request: 'No', 
+              ticket_with_infant: 'Yes',
+              ticket_luggage: 'Yes', 
+              boarding_gate: '14',
+              boarding_zone_group: '3', 
+              boarding_secondary_screening: 'Yes', 
+              boarding_date_time: '00:23:00', 
+              boarding_departure_date_time: '12:48:00', 
+              boarding_arrival_date_time: '04:33:00', 
+              frequent_flyer_airline: 'Alaska',
+              frequent_flyer_number: '874412',
+              frequent_flyer_status: 'Gold',
             })
 
             break;
 
           default:
-            sethotelDetails({
-              one_title: '',
-              one_address: '',
-              one_city: '',
-              one_postal_code: '',
-              one_state: '',
-              one_place_of_birth: '',
-              one_email: '',
-              one_phone_number: '',
-              one_anniversary_date: '',
-              one_occasion: '',
-              two_title: '',
-              two_first_name: '',
-              two_last_name: '',
-              two_address: '',
-              two_city: '',
-              two_postal_code: '',
-              two_state: '',
-              two_country: '',
-              two_date_of_birth: '',
-              two_place_of_birth: '',
-              two_email: '',
-              two_phone_number: '',
-              two_anniversary_date: '',
-              two_occasion: '',
-              hotel_repeat_guest: '',
-              hotel_check_in_date: '',
-              hotel_check_out_date: '',
-              hotel_arrival_date: '',
-              hotel_arrival_flight: '',
-              hotel_departure_date: '',
-              hotel_departure_flight: '',
-              hotel_notes: '',
+            setBoardingPassDetails({
+              passenger_given_names: '',
+              passenger_family_names: '',
+              passenger_image: '', 
+              airline_alliance: '', 
+              passenger_tsa_precheck: '',
+              booking_reference_number: '', 
+              ticket_eticket_number: '',
+              ticket_designated_carrier: '',
+              ticket_operating_carrier: '',
+              ticket_flight_number: '',
+              ticket_class: '',
+              ticket_seat_number: '',
+              ticket_exit_row: '',
+              ticket_origin: '',
+              ticket_destination: '',
+              ticket_special_service_request: '', 
+              ticket_with_infant: '',
+              ticket_luggage: '', 
+              boarding_gate: '',
+              boarding_zone_group: '', 
+              boarding_secondary_screening: '', 
+              boarding_date_time: '', 
+              boarding_departure_date_time: '', 
+              boarding_arrival_date_time: '', 
+              frequent_flyer_airline: '',
+              frequent_flyer_number: '',
+              frequent_flyer_status: '',
             })
             break;
         }
@@ -412,7 +397,7 @@ function TravelerForm() {
       
                   <Form id="form" onSubmit={handleSubmit} ref={newForm}>
                   <InputBox>
-                  <ModalLabel>Hotel Details Sample Sets</ModalLabel>
+                  <ModalLabel>Boarding Pass Sample Sets</ModalLabel>
                   <select 
                   onChange={(e) => selectOption(e.target.value)}
                   className="dropdown-content"
@@ -423,321 +408,227 @@ function TravelerForm() {
                   </select>
                   </InputBox>
                   <FormContainer>
-                    <FormWrapper>
-                    <HeaderVerify>
-                      Guest 1
-                    </HeaderVerify>
-                    </FormWrapper>
-                  <InputBox>
-                        <ModalLabel htmlFor="one_title">Title</ModalLabel>
-                        <InputFieldModal
-                          type="text"
-                          name="one_title"
-                          defaultValue={hotelDetails.one_title}
-                          ></InputFieldModal>
-                      </InputBox>
-                      
-                      <InputBox>
-                        <ModalLabel>Last Name</ModalLabel>
-                        <DataValue>{attributes['family-name'] ? attributes['family-name'] : ''}</DataValue>
-                      </InputBox>
-
-                      <InputBox>
-                        <ModalLabel htmlFor="one_first_name">First Name</ModalLabel>
-                        <DataValue>{attributes['given-names'] ? attributes['given-names'] : ''}</DataValue>
-                      </InputBox>
-
-                      <InputBox>
-                        <ModalLabel htmlFor="one_address">Address</ModalLabel>
-                        <InputFieldModal
-                          type="text"
-                          name="one_address"
-                          defaultValue={hotelDetails.one_address}
-                        ></InputFieldModal>
-                      </InputBox>
-
-                      <InputBox>
-                        <ModalLabel htmlFor="one_city">City</ModalLabel>
-                        <InputFieldModal
-                          type="text"
-                          name="one_city"
-                          defaultValue={hotelDetails.one_city}
-                        ></InputFieldModal>
-                      </InputBox>
-
-                      <InputBox>
-                        <ModalLabel htmlFor="one_postal_code">Postal Code</ModalLabel>
-                        <InputFieldModal
-                          type="text"
-                          name="one_postal_code"
-                          defaultValue={hotelDetails.one_postal_code}
-                        ></InputFieldModal>
-                      </InputBox>
-
-                      <InputBox>
-                        <ModalLabel htmlFor="one_state">State</ModalLabel>
-                        <InputFieldModal
-                          type="text"
-                          name="one_state"
-                          defaultValue={hotelDetails.one_state}
-                        ></InputFieldModal>
-                      </InputBox>
-
-                      <InputBox>
-                        <ModalLabel htmlFor="one_country">Country</ModalLabel>
-                        <DataValue>{attributes.nationality ? attributes.nationality : ''}</DataValue>
-                      </InputBox>
-
-                      <InputBox>
-                        <ModalLabel>Date of Birth</ModalLabel>
-                        <DataValue>{attributes['date-of-birth'] ? attributes['date-of-birth'] : ''}</DataValue>
-                      </InputBox>
-
-                      <InputBox>
-                        <ModalLabel>Place of Birth</ModalLabel>
-                        <InputFieldModal
-                          type="text"
-                          name="one_place_of_birth"
-                          defaultValue={hotelDetails.one_place_of_birth}
-                        ></InputFieldModal>
-                      </InputBox>
-
-                      <InputBox>
-                        <ModalLabel htmlFor="one_email">Email</ModalLabel>
-                        <InputFieldModal
-                          type="text"
-                          name="one_email"
-                          defaultValue={hotelDetails.one_email}
-                        ></InputFieldModal>
-                      </InputBox>
-
-                      <InputBox>
-                        <ModalLabel htmlFor="one_phone_number">Phone Number</ModalLabel>
-                        <InputFieldModal
-                          type="text"
-                          name="one_phone_number"
-                          defaultValue={hotelDetails.one_phone_number}
-                        ></InputFieldModal>
-                      </InputBox>
-
-                      <InputBox>
-                        <ModalLabel htmlFor="one_departure_date">Anniversary Date</ModalLabel>
-                        <InputFieldModal
-                          type="date"
-                          name="one_departure_date"
-                          defaultValue={hotelDetails.one_anniversary_date}
-                        ></InputFieldModal>
-                      </InputBox>
-
-                      <InputBox>
-                        <ModalLabel htmlFor="traveler_email">Occasion</ModalLabel>
-                        <InputFieldModal
-                          type="text"
-                          name="one_occasion"
-                          defaultValue={hotelDetails.one_occasion}
-                        ></InputFieldModal>
-                      </InputBox>
-                 
+                    
                   <FormWrapper>
                     <HeaderVerify>
-                      Guest 2
+                      Boarding Pass Details
                     </HeaderVerify>
-                    </FormWrapper>
-                      
-                    <InputBox>
-                        <ModalLabel htmlFor="traveler_phone">Title</ModalLabel>
-                        <InputFieldModal
-                          type="text"
-                          name="two_title"
-                          defaultValue={hotelDetails.two_title}
-                        ></InputFieldModal>
-                      </InputBox>
-                      
-                      <InputBox>
-                        <ModalLabel htmlFor="traveler_email">Last Name</ModalLabel>
-                        <InputFieldModal
-                          type="text"
-                          name="two_last_name"
-                          defaultValue={hotelDetails.two_last_name}
-                        ></InputFieldModal>
-                      </InputBox>
+                  </FormWrapper>
 
                       <InputBox>
-                        <ModalLabel htmlFor="traveler_email">First Name</ModalLabel>
+                        <ModalLabel htmlFor="departure_airline">Given Name</ModalLabel>
                         <InputFieldModal
                           type="text"
-                          name="two_first_name"
-                          defaultValue={hotelDetails.two_first_name}
+                          name="passenger_given_names"
+                          defaultValue={boardingPassDetails.passenger_given_names}
                         ></InputFieldModal>
                       </InputBox>
-
                       <InputBox>
-                        <ModalLabel htmlFor="traveler_email">Address</ModalLabel>
+                        <ModalLabel htmlFor="departure_flight_number">Family Name</ModalLabel>
                         <InputFieldModal
                           type="text"
-                          name="two_address"
-                          defaultValue={hotelDetails.two_address}
+                          name="passenger_family_names"
+                          defaultValue={boardingPassDetails.passenger_family_names}
                         ></InputFieldModal>
                       </InputBox>
-
                       <InputBox>
-                        <ModalLabel htmlFor="traveler_email">City</ModalLabel>
+                        <ModalLabel htmlFor="departure_date">Image</ModalLabel>
                         <InputFieldModal
                           type="text"
-                          name="two_city"
-                          defaultValue={hotelDetails.two_city}
+                          name="passenger_image"
+                          defaultValue={boardingPassDetails.passenger_image}
                         ></InputFieldModal>
                       </InputBox>
-
                       <InputBox>
-                        <ModalLabel htmlFor="traveler_email">Postal Code</ModalLabel>
+                        <ModalLabel htmlFor="departure_destination_port_code">Airline Alliance</ModalLabel>
                         <InputFieldModal
                           type="text"
-                          name="two_postal_code"
-                          defaultValue={hotelDetails.two_postal_code}
+                          name="airline_alliance"
+                          defaultValue={boardingPassDetails.airline_alliance}
                         ></InputFieldModal>
                       </InputBox>
-
                       <InputBox>
-                        <ModalLabel htmlFor="traveler_email">State</ModalLabel>
+                        <ModalLabel htmlFor="departure_destination_country_code">TSA Precheck</ModalLabel>
                         <InputFieldModal
                           type="text"
-                          name="two_state"
-                          defaultValue={hotelDetails.two_state}
+                          name="passenger_tsa_precheck"
+                          defaultValue={boardingPassDetails.passenger_tsa_precheck}
                         ></InputFieldModal>
                       </InputBox>
-
                       <InputBox>
-                        <ModalLabel htmlFor="traveler_email">Country</ModalLabel>
+                        <ModalLabel htmlFor="departure_destination_country_code">Booking Reference Number</ModalLabel>
                         <InputFieldModal
                           type="text"
-                          name="two_country"
-                          defaultValue={hotelDetails.two_country}
+                          name="booking_reference_number"
+                          defaultValue={boardingPassDetails.booking_reference_number}
                         ></InputFieldModal>
                       </InputBox>
-
                       <InputBox>
-                        <ModalLabel htmlFor="traveler_email">Date of Birth</ModalLabel>
-                        <InputFieldModal
-                          type="date"
-                          name="two_date_of_birth"
-                          defaultValue={hotelDetails.two_date_of_birth}
-                        ></InputFieldModal>
-                      </InputBox>
-
-                      <InputBox>
-                        <ModalLabel htmlFor="traveler_email">Place of Birth</ModalLabel>
+                        <ModalLabel htmlFor="departure_destination_country_code">Eticket Number</ModalLabel>
                         <InputFieldModal
                           type="text"
-                          name="two_place_of_birth"
-                          defaultValue={hotelDetails.two_place_of_birth}
+                          name="ticket_eticket_number"
+                          defaultValue={boardingPassDetails.ticket_eticket_number}
                         ></InputFieldModal>
                       </InputBox>
-
                       <InputBox>
-                        <ModalLabel htmlFor="traveler_email">Email</ModalLabel>
+                        <ModalLabel htmlFor="departure_destination_country_code">Designated Carrier</ModalLabel>
                         <InputFieldModal
                           type="text"
-                          name="two_email" 
-                          defaultValue={hotelDetails.two_email}
+                          name="ticket_designated_carrier"
+                          defaultValue={boardingPassDetails.ticket_designated_carrier}
                         ></InputFieldModal>
                       </InputBox>
-
                       <InputBox>
-                        <ModalLabel htmlFor="traveler_email">Phone Number</ModalLabel>
+                        <ModalLabel htmlFor="departure_destination_country_code">Operating Carrier</ModalLabel>
                         <InputFieldModal
                           type="text"
-                          name="two_phone_number"
-                          defaultValue={hotelDetails.two_phone_number}
+                          name="ticket_operating_carrier"
+                          defaultValue={boardingPassDetails.ticket_operating_carrier}
                         ></InputFieldModal>
                       </InputBox>
-
                       <InputBox>
-                        <ModalLabel htmlFor="traveler_email">Anniversary Date</ModalLabel>
-                        <InputFieldModal
-                          type="date"
-                          name="dwo_anniversary_date"
-                          defaultValue={hotelDetails.two_anniversary_date}
-                        ></InputFieldModal>
-                      </InputBox>
-
-                      <InputBox>
-                        <ModalLabel htmlFor="traveler_email">Occasion</ModalLabel>
+                        <ModalLabel htmlFor="departure_destination_country_code">Flight Number</ModalLabel>
                         <InputFieldModal
                           type="text"
-                          name="two_occasion"
-                          defaultValue={hotelDetails.two_occasion}
+                          name="ticket_flight_number"
+                          defaultValue={boardingPassDetails.ticket_flight_number}
                         ></InputFieldModal>
                       </InputBox>
-
-                      <FormWrapper>
-                    <HeaderVerify>
-                      Hotel Details
-                    </HeaderVerify>
-                    </FormWrapper>
-
                       <InputBox>
-                        <ModalLabel htmlFor="departure_airline">Repeat Guest</ModalLabel>
+                        <ModalLabel htmlFor="departure_destination_country_code">Class</ModalLabel>
                         <InputFieldModal
                           type="text"
-                          name="hotel_repeat_guest"
-                          defaultValue={hotelDetails.hotel_repeat_guest}
+                          name="ticket_class"
+                          defaultValue={boardingPassDetails.ticket_class}
                         ></InputFieldModal>
                       </InputBox>
                       <InputBox>
-                        <ModalLabel htmlFor="departure_flight_number">Check-In Date</ModalLabel>
-                        <InputFieldModal
-                          type="date"
-                          name="hotel_check_in_date"
-                          defaultValue={hotelDetails.hotel_check_in_date}
-                        ></InputFieldModal>
-                      </InputBox>
-                      <InputBox>
-                        <ModalLabel htmlFor="departure_date">Check-Out Date</ModalLabel>
-                        <InputFieldModal
-                          type="date"
-                          name="hotel_check_out_date"
-                          defaultValue={hotelDetails.hotel_check_out_date}
-                        ></InputFieldModal>
-                      </InputBox>
-                      <InputBox>
-                        <ModalLabel htmlFor="departure_destination_port_code">Arrival Date</ModalLabel>
-                        <InputFieldModal
-                          type="date"
-                          name="hotel_arrival_date"
-                          defaultValue={hotelDetails.hotel_arrival_date}
-                        ></InputFieldModal>
-                      </InputBox>
-                      <InputBox>
-                        <ModalLabel htmlFor="departure_destination_country_code">Arrival Flight</ModalLabel>
+                        <ModalLabel htmlFor="departure_destination_country_code">Seat Number</ModalLabel>
                         <InputFieldModal
                           type="text"
-                          name="hotel_arrival_flight"
-                          defaultValue={hotelDetails.hotel_arrival_flight}
+                          name="ticket_seat_number"
+                          defaultValue={boardingPassDetails.ticket_seat_number}
                         ></InputFieldModal>
                       </InputBox>
                       <InputBox>
-                        <ModalLabel htmlFor="departure_destination_country_code">Departure Date</ModalLabel>
-                        <InputFieldModal
-                          type="date"
-                          name="hotel_departure_date"
-                          defaultValue={hotelDetails.hotel_departure_date}
-                        ></InputFieldModal>
-                      </InputBox>
-                      <InputBox>
-                        <ModalLabel htmlFor="departure_destination_country_code">Departure Flight</ModalLabel>
+                        <ModalLabel htmlFor="departure_destination_country_code">Exit Row</ModalLabel>
                         <InputFieldModal
                           type="text"
-                          name="hotel_departure_flight"
-                          defaultValue={hotelDetails.hotel_departure_flight}
+                          name="ticket_exit_row"
+                          defaultValue={boardingPassDetails.ticket_exit_row}
                         ></InputFieldModal>
                       </InputBox>
                       <InputBox>
-                        <ModalLabel htmlFor="departure_destination_country_code">Notes</ModalLabel>
+                        <ModalLabel htmlFor="departure_destination_country_code">Origin</ModalLabel>
                         <InputFieldModal
                           type="text"
-                          name="hotel_notes"
-                          defaultValue={hotelDetails.hotel_notes}
+                          name="ticket_origin"
+                          defaultValue={boardingPassDetails.ticket_origin}
+                        ></InputFieldModal>
+                      </InputBox>
+                      <InputBox>
+                        <ModalLabel htmlFor="departure_destination_country_code">Destination</ModalLabel>
+                        <InputFieldModal
+                          type="text"
+                          name="ticket_destination"
+                          defaultValue={boardingPassDetails.ticket_destination}
+                        ></InputFieldModal>
+                      </InputBox>
+                      <InputBox>
+                        <ModalLabel htmlFor="departure_destination_country_code">Special Service Request</ModalLabel>
+                        <InputFieldModal
+                          type="text"
+                          name="ticket_special_service_request"
+                          defaultValue={boardingPassDetails.ticket_special_service_request}
+                        ></InputFieldModal>
+                      </InputBox>
+                      <InputBox>
+                        <ModalLabel htmlFor="departure_destination_country_code">Infant Accomodations</ModalLabel>
+                        <InputFieldModal
+                          type="text"
+                          name="ticket_with_infant"
+                          defaultValue={boardingPassDetails.ticket_with_infant}
+                        ></InputFieldModal>
+                      </InputBox>
+                      <InputBox>
+                        <ModalLabel htmlFor="departure_destination_country_code">Luggage</ModalLabel>
+                        <InputFieldModal
+                          type="text"
+                          name="ticket_luggage"
+                          defaultValue={boardingPassDetails.ticket_luggage}
+                        ></InputFieldModal>
+                      </InputBox>
+                      <InputBox>
+                        <ModalLabel htmlFor="departure_destination_country_code">Gate</ModalLabel>
+                        <InputFieldModal
+                          type="text"
+                          name="boarding_gate"
+                          defaultValue={boardingPassDetails.boarding_gate}
+                        ></InputFieldModal>
+                      </InputBox>
+                      <InputBox>
+                        <ModalLabel htmlFor="departure_destination_country_code">Zone Group</ModalLabel>
+                        <InputFieldModal
+                          type="text"
+                          name="boarding_zone_group"
+                          defaultValue={boardingPassDetails.boarding_zone_group}
+                        ></InputFieldModal>
+                      </InputBox>
+                      <InputBox>
+                        <ModalLabel htmlFor="departure_destination_country_code">Secondary Screening</ModalLabel>
+                        <InputFieldModal
+                          type="text"
+                          name="boarding_secondary_screening"
+                          defaultValue={boardingPassDetails.boarding_secondary_screening}
+                        ></InputFieldModal>
+                      </InputBox>
+                      <InputBox>
+                        <ModalLabel htmlFor="departure_destination_country_code">Boarding Time</ModalLabel>
+                        <InputFieldModal
+                          type="time"
+                          name="boarding_date_time"
+                          defaultValue={boardingPassDetails.boarding_date_time}
+                        ></InputFieldModal>
+                      </InputBox>
+                      <InputBox>
+                        <ModalLabel htmlFor="departure_destination_country_code">Departure Time</ModalLabel>
+                        <InputFieldModal
+                          type="time"
+                          name="boarding_departure_date_time"
+                          defaultValue={boardingPassDetails.boarding_departure_date_time}
+                        ></InputFieldModal>
+                      </InputBox>
+                      <InputBox>
+                        <ModalLabel htmlFor="departure_destination_country_code">Arrival Time</ModalLabel>
+                        <InputFieldModal
+                          type="time"
+                          name="boarding_arrival_date_time"
+                          defaultValue={boardingPassDetails.boarding_arrival_date_time}
+                        ></InputFieldModal>
+                      </InputBox>
+                      <InputBox>
+                        <ModalLabel htmlFor="departure_destination_country_code">Frequent Flyer Airline</ModalLabel>
+                        <InputFieldModal
+                          type="text"
+                          name="frequent_flyer_airline"
+                          defaultValue={boardingPassDetails.frequent_flyer_airline}
+                        ></InputFieldModal>
+                      </InputBox>
+                      <InputBox>
+                        <ModalLabel htmlFor="departure_destination_country_code">Frequent Flyer Number</ModalLabel>
+                        <InputFieldModal
+                          type="text"
+                          name="frequent_flyer_number"
+                          defaultValue={boardingPassDetails.frequent_flyer_number}
+                        ></InputFieldModal>
+                      </InputBox>
+                      <InputBox>
+                        <ModalLabel htmlFor="departure_destination_country_code">Frequent Flyer Status</ModalLabel>
+                        <InputFieldModal
+                          type="text"
+                          name="frequent_flyer_status"
+                          defaultValue={boardingPassDetails.frequent_flyer_status}
                         ></InputFieldModal>
                       </InputBox>
                     </FormContainer>
