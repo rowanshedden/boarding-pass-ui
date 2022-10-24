@@ -2,7 +2,7 @@ import './App.css';
 import TravelerForm from './UI/TravelerForm';
 import styled from 'styled-components'
 
-import logo from './assets/boarding-pass.png'
+import logo from './assets/airline-logo.png'
 import language from './assets/language.svg'
 import poweredByLogo from './assets/powered-by.png'
 

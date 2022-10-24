@@ -78,7 +78,7 @@ export const SubmitBtn = styled.button`
   color: white;
   border: none;
   box-shadow: ${(props) => props.theme.drop_shadow};
-  background: #0095DA;
+  background: #B7142C;
   :hover {
     cursor: pointer;
   }
@@ -92,7 +92,7 @@ export const Btn = styled.button`
   color: white;
   border: none;
   box-shadow: ${(props) => props.theme.drop_shadow};
-  background: #0095DA;
+  background: #B7142C;
   :hover {
     cursor: pointer;
   }
@@ -108,7 +108,7 @@ border-radius: 10000px;
 color: white;
 border: none;
 box-shadow: ${(props) => props.theme.drop_shadow};
-background: #0095DA;
+background: #B7142C;
 :hover {
   cursor: pointer;
 }
@@ -126,7 +126,7 @@ export const PoweredByLogo = styled.img`
   position: absolute;
   width: 150px;
   right: 25px;
-  top: 13px;
+  top: -40px;
 `
 export const Bubble = styled.img`
   position: absolute;

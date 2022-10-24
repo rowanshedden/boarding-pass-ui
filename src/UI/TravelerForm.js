@@ -38,11 +38,11 @@ import {
 
 function TravelerForm() {
   const [invitation, setInvitation] = useState('')
-  const [verificationComplete, setVerificationComplete] = useState(false)
+  const [verificationComplete, setVerificationComplete] = useState(true)
   const [formSubmitted, setFormSubmitted] = useState(false)
   const [verification, setVerification] = useState({})
   const [errMessage, setErrMessage] = useState('')
-  const [toggleForm, setToggleForm] = useState(false)
+  const [toggleForm, setToggleForm] = useState(true)
   const [boardingPassDetails, setBoardingPassDetails] = useState({})
 
   const effectRan = useRef()
@@ -86,16 +86,19 @@ function TravelerForm() {
         },
         timeout: 1000 * 60 * 35
       }).then(verRes => {
+        const verificationRecords = verRes.data.verificationRecords
         setVerificationComplete(true)
-
+      
         console.log('Verification:', verRes)
-        
-        let verifiedAttributes = {}
-        verRes.data.result_data.forEach((attributes, index) => {
-          verifiedAttributes[attributes.name] = attributes.value
-        })
 
-        setVerification({connectionId: verRes.data.connection_id, verifiedAttributes: verifiedAttributes})
+        let verifiedAttributes = {}
+        verificationRecords.forEach((record) => {
+          record.result_data.forEach((attributes, index) => {
+            verifiedAttributes[attributes.name] = attributes.value
+          })
+        })
+        
+        setVerification({connectionId: verificationRecords[0].connection_id, verifiedAttributes: verifiedAttributes})
       }).catch(err => {
         console.error('Error: ', err)
         if (err.response.data.message) {
@@ -126,8 +129,6 @@ function TravelerForm() {
             departure_destination_country_code: form.get('departure_destination_country_code'),
           }
 
-          console.log(verification.connectionId)
-
           Axios({
             method: 'POST',
             url: `/api/credentials/`,
@@ -149,7 +150,6 @@ function TravelerForm() {
       const selectOption = (option) => {
         switch(option) {
           case 'option_one':
-            console.log(option)
             setBoardingPassDetails({
               passenger_given_names: 'John',
               passenger_family_names: 'Doe',
@@ -160,22 +160,22 @@ function TravelerForm() {
               ticket_eticket_number: '109420123',
               ticket_designated_carrier: 'Delta',
               ticket_operating_carrier: 'Spirit Air',
-              ticket_flight_number: '15294',
+              ticket_flight_number: 'DA15294',
               ticket_class: 'Economy',
               ticket_seat_number: '15B',
               ticket_exit_row: 'No',
-              ticket_origin: 'USA',
-              ticket_destination: 'France',
-              ticket_special_service_request: 'No', 
+              ticket_origin: 'LAX',
+              ticket_destination: 'CDG',
+              ticket_special_service_request: 'None', 
               ticket_with_infant: 'Yes',
-              ticket_luggage: 'Yes', 
-              boarding_gate: '54',
+              ticket_luggage: '2pc', 
+              boarding_gate: 'A54',
               boarding_zone_group: '1', 
               boarding_secondary_screening: 'No', 
-              boarding_date_time: '23:31:00', 
-              boarding_departure_date_time: '19:05:00', 
-              boarding_arrival_date_time: '08:35:00', 
-              frequent_flyer_airline: 'American',
+              boarding_date_time: '2022-10-31T01:00:00.000-05:00', 
+              boarding_departure_date_time: '2022-10-31T01:30:00.000-05:00', 
+              boarding_arrival_date_time: '2022-11-01T01:30:00.000-05:00', 
+              frequent_flyer_airline: 'American Airlines',
               frequent_flyer_number: '9080',
               frequent_flyer_status: 'Silver',
             })
@@ -183,7 +183,6 @@ function TravelerForm() {
           break;
           
           case 'option_two':
-            console.log(option)
             setBoardingPassDetails({
               passenger_given_names: 'Jill',
               passenger_family_names: 'Cassidy',
@@ -194,22 +193,22 @@ function TravelerForm() {
               ticket_eticket_number: '7240182',
               ticket_designated_carrier: 'Asiana',
               ticket_operating_carrier: 'Singapore Air',
-              ticket_flight_number: '155112',
+              ticket_flight_number: 'AS155112',
               ticket_class: 'First Class',
               ticket_seat_number: '55A',
               ticket_exit_row: 'No',
-              ticket_origin: 'England',
-              ticket_destination: 'Thailand',
-              ticket_special_service_request: 'No', 
+              ticket_origin: 'LHR',
+              ticket_destination: 'BKK',
+              ticket_special_service_request: 'None',
               ticket_with_infant: 'Yes',
-              ticket_luggage: 'Yes', 
-              boarding_gate: '14',
+              ticket_luggage: '2pc', 
+              boarding_gate: 'A14',
               boarding_zone_group: '3', 
               boarding_secondary_screening: 'Yes', 
-              boarding_date_time: '00:23:00', 
-              boarding_departure_date_time: '12:48:00', 
-              boarding_arrival_date_time: '04:33:00', 
-              frequent_flyer_airline: 'Alaska',
+              boarding_date_time: '2022-10-31T01:00:00.000-05:00', 
+              boarding_departure_date_time: '2022-10-31T01:30:00.000-05:00', 
+              boarding_arrival_date_time: '2022-11-01T01:30:00.000-05:00', 
+              frequent_flyer_airline: 'Alaska Airlines',
               frequent_flyer_number: '874412',
               frequent_flyer_status: 'Gold',
             })
@@ -254,7 +253,6 @@ function TravelerForm() {
 
       const passportDisplay = (
         <div>
-          {console.log(verification.verifiedAttributes)}
                   <div className="plane-row">
                    <div className="one-third-column">
                     <div className="title-center-text">
@@ -268,8 +266,7 @@ function TravelerForm() {
                      Review:
                    </span>
                      <span className='bar-text'>
-                      Travelers receive confirmation that their DTC credential details
-                       were successfully received by the system
+                      Travelers receive confirmation that their DTC and Trusted Traveler credential details were successfully received by the system
                      </span>
                  </div>
                  <div className='content-row'>
@@ -318,7 +315,7 @@ function TravelerForm() {
                   </span>
                     <span className='bar-text'>
                       Guests supply details about their flight that are not contained
-                      in their DTC credential
+                      in their DTC or Trusted Traveler credential 
                     </span>
                 </div>
                 <div className='content-row content-text'>
@@ -544,7 +541,7 @@ function TravelerForm() {
                         ></InputFieldModal>
                       </InputBox>
                       <InputBox>
-                        <ModalLabel htmlFor="departure_destination_country_code">Infant Accomodations</ModalLabel>
+                        <ModalLabel htmlFor="departure_destination_country_code">Infant Accomdations</ModalLabel>
                         <InputFieldModal
                           type="text"
                           name="ticket_with_infant"
@@ -651,14 +648,14 @@ function TravelerForm() {
         </div>
         <div className='content-row'>
           <div className='one-third-column'>
-            <div className='content-text'>
+          <div className='content-text'>
               <p>
-                Thank you, your boarding pass information was received.
+                Thank you, your boarding pass is in process for approval.
               </p>
             </div>
             <div className='content-text'>
-                You still need to come to the front desk, but your check-in process will be
-                significantly faster because we already have the information you submitted.  
+                If approved, you should receive a boarding pass credential offer
+                on your mobile device shortly.  
             </div>
           </div>
           </div>
@@ -686,7 +683,7 @@ function TravelerForm() {
             <span className='bar-text'>
               Travelers must have already downloaded the traveler
               mobile application onto their mobile device and
-              received a DTC passport&nbsp;credential
+              received a DTC passport and Trusted Traveler&nbsp;credential
             </span>
         </div>
         <div className='content-row'>
@@ -712,6 +709,7 @@ function TravelerForm() {
 
     return (
         <div> 
+            {console.log(verification)}
             {!errMessage ? (
             invitation && invitation.invitation_url && verificationComplete ? (    
                 !toggleForm ? ( 

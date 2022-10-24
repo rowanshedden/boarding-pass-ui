@@ -140,7 +140,7 @@ select {
   position: relative;
   display: table;
   min-height: 14em;
-  background-image: url('./assets/airplane-banner.jpg');
+  background-image: url('./assets/boarding-pass-banner.png');
   background-repeat: no-repeat;
   background-size: cover;
   width: 100%;
@@ -148,7 +148,8 @@ select {
 }
 
 .bar-row {
-  background-image: url('./assets/sita-blue.jpeg');
+  /* background-image: url('./assets/sita-blue.jpeg'); */
+  background: #11172B;
   padding: 20px 40px; 
 }
 
@@ -167,10 +168,10 @@ select {
   position: relative;
   color: white;
   font-size: calc(10px + 0.390625vw);
-  background-image: url('./assets/sita-blue.jpeg');
+  /* background-image: url('./assets/sita-blue.jpeg'); */
+  background: #11172B;
   padding: 20px 40px; 
   height: calc(60px + 0.390625vw);
-
 }
 
 .one-third-column {
