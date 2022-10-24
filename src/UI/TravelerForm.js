@@ -128,22 +128,22 @@ function TravelerForm() {
 
           console.log(verification.connectionId)
 
-      //     Axios({
-      //       method: 'POST',
-      //       url: `/api/credentials/`,
-      //       data: {
-      //         travelerData: formData, 
-      //         dtcData: verification.verifiedAttributes, 
-      //         connectionId: verification.connectionId
-      //       }
-      //     }).then(() => {
+          Axios({
+            method: 'POST',
+            url: `/api/credentials/`,
+            data: {
+              boardingData: formData, 
+              credentialData: verification.verifiedAttributes, 
+              connectionId: verification.connectionId
+            }
+          }).then(() => {
             setFormSubmitted(true)
-      //     }).catch(err => {
-      //       console.error('Error: ', err)
-      //       if (err.response.data.message) {
-      //         setErrMessage(err.response.data.message)
-      //       }
-      //     })
+          }).catch(err => {
+            console.error('Error: ', err)
+            if (err.response.data.message) {
+              setErrMessage(err.response.data.message)
+            }
+          })
       }
 
       const selectOption = (option) => {
@@ -653,7 +653,7 @@ function TravelerForm() {
           <div className='one-third-column'>
             <div className='content-text'>
               <p>
-                Thank you, your reservation information was received.
+                Thank you, your boarding pass information was received.
               </p>
             </div>
             <div className='content-text'>
