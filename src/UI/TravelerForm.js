@@ -160,7 +160,7 @@ function TravelerForm() {
               ticket_eticket_number: '109420123',
               ticket_designated_carrier: 'Delta',
               ticket_operating_carrier: 'Spirit Air',
-              ticket_flight_number: 'DA15294',
+              ticket_flight_number: 'DA152',
               ticket_class: 'Economy',
               ticket_seat_number: '15B',
               ticket_exit_row: 'No',
@@ -172,9 +172,9 @@ function TravelerForm() {
               boarding_gate: 'A54',
               boarding_zone_group: '1', 
               boarding_secondary_screening: 'No', 
-              boarding_date_time: '2022-10-31T01:00:00.000-05:00', 
-              boarding_departure_date_time: '2022-10-31T01:30:00.000-05:00', 
-              boarding_arrival_date_time: '2022-11-01T01:30:00.000-05:00', 
+              boarding_date_time: '2022-10-15T08:30', 
+              boarding_departure_date_time: '2022-10-15T10:30', 
+              boarding_arrival_date_time: '2022-10-23T17:52', 
               frequent_flyer_airline: 'American Airlines',
               frequent_flyer_number: '9080',
               frequent_flyer_status: 'Silver',
@@ -193,7 +193,7 @@ function TravelerForm() {
               ticket_eticket_number: '7240182',
               ticket_designated_carrier: 'Asiana',
               ticket_operating_carrier: 'Singapore Air',
-              ticket_flight_number: 'AS155112',
+              ticket_flight_number: 'AS155',
               ticket_class: 'First Class',
               ticket_seat_number: '55A',
               ticket_exit_row: 'No',
@@ -205,9 +205,9 @@ function TravelerForm() {
               boarding_gate: 'A14',
               boarding_zone_group: '3', 
               boarding_secondary_screening: 'Yes', 
-              boarding_date_time: '2022-10-31T01:00:00.000-05:00', 
-              boarding_departure_date_time: '2022-10-31T01:30:00.000-05:00', 
-              boarding_arrival_date_time: '2022-11-01T01:30:00.000-05:00', 
+              boarding_date_time: '2022-10-15T08:30', 
+              boarding_departure_date_time: '2022-10-15T10:30', 
+              boarding_arrival_date_time: '2022-10-23T17:52', 
               frequent_flyer_airline: 'Alaska Airlines',
               frequent_flyer_number: '874412',
               frequent_flyer_status: 'Gold',
@@ -413,7 +413,7 @@ function TravelerForm() {
                   </FormWrapper>
 
                       <InputBox>
-                        <ModalLabel htmlFor="departure_airline">Given Name</ModalLabel>
+                        <ModalLabel htmlFor="passenger_given_names">Given Name</ModalLabel>
                         <InputFieldModal
                           type="text"
                           name="passenger_given_names"
@@ -421,7 +421,7 @@ function TravelerForm() {
                         ></InputFieldModal>
                       </InputBox>
                       <InputBox>
-                        <ModalLabel htmlFor="departure_flight_number">Family Name</ModalLabel>
+                        <ModalLabel htmlFor="passenger_family_names">Family Name</ModalLabel>
                         <InputFieldModal
                           type="text"
                           name="passenger_family_names"
@@ -429,7 +429,7 @@ function TravelerForm() {
                         ></InputFieldModal>
                       </InputBox>
                       <InputBox>
-                        <ModalLabel htmlFor="departure_date">Image</ModalLabel>
+                        <ModalLabel htmlFor="passenger_image">Image</ModalLabel>
                         <InputFieldModal
                           type="text"
                           name="passenger_image"
@@ -437,7 +437,7 @@ function TravelerForm() {
                         ></InputFieldModal>
                       </InputBox>
                       <InputBox>
-                        <ModalLabel htmlFor="departure_destination_port_code">Airline Alliance</ModalLabel>
+                        <ModalLabel htmlFor="airline_alliance">Airline Alliance</ModalLabel>
                         <InputFieldModal
                           type="text"
                           name="airline_alliance"
@@ -445,7 +445,7 @@ function TravelerForm() {
                         ></InputFieldModal>
                       </InputBox>
                       <InputBox>
-                        <ModalLabel htmlFor="departure_destination_country_code">TSA Precheck</ModalLabel>
+                        <ModalLabel htmlFor="passenger_tsa_precheck">TSA Precheck</ModalLabel>
                         <InputFieldModal
                           type="text"
                           name="passenger_tsa_precheck"
@@ -453,7 +453,7 @@ function TravelerForm() {
                         ></InputFieldModal>
                       </InputBox>
                       <InputBox>
-                        <ModalLabel htmlFor="departure_destination_country_code">Booking Reference Number</ModalLabel>
+                        <ModalLabel htmlFor="booking_reference_number">Booking Reference Number</ModalLabel>
                         <InputFieldModal
                           type="text"
                           name="booking_reference_number"
@@ -461,7 +461,7 @@ function TravelerForm() {
                         ></InputFieldModal>
                       </InputBox>
                       <InputBox>
-                        <ModalLabel htmlFor="departure_destination_country_code">Eticket Number</ModalLabel>
+                        <ModalLabel htmlFor="ticket_eticket_number">Eticket Number</ModalLabel>
                         <InputFieldModal
                           type="text"
                           name="ticket_eticket_number"
@@ -469,7 +469,7 @@ function TravelerForm() {
                         ></InputFieldModal>
                       </InputBox>
                       <InputBox>
-                        <ModalLabel htmlFor="departure_destination_country_code">Designated Carrier</ModalLabel>
+                        <ModalLabel htmlFor="ticket_designated_carrier">Designated Carrier</ModalLabel>
                         <InputFieldModal
                           type="text"
                           name="ticket_designated_carrier"
@@ -477,7 +477,7 @@ function TravelerForm() {
                         ></InputFieldModal>
                       </InputBox>
                       <InputBox>
-                        <ModalLabel htmlFor="departure_destination_country_code">Operating Carrier</ModalLabel>
+                        <ModalLabel htmlFor="ticket_operating_carrier">Operating Carrier</ModalLabel>
                         <InputFieldModal
                           type="text"
                           name="ticket_operating_carrier"
@@ -485,7 +485,7 @@ function TravelerForm() {
                         ></InputFieldModal>
                       </InputBox>
                       <InputBox>
-                        <ModalLabel htmlFor="departure_destination_country_code">Flight Number</ModalLabel>
+                        <ModalLabel htmlFor="ticket_flight_number">Flight Number</ModalLabel>
                         <InputFieldModal
                           type="text"
                           name="ticket_flight_number"
@@ -493,7 +493,7 @@ function TravelerForm() {
                         ></InputFieldModal>
                       </InputBox>
                       <InputBox>
-                        <ModalLabel htmlFor="departure_destination_country_code">Class</ModalLabel>
+                        <ModalLabel htmlFor="ticket_class">Class</ModalLabel>
                         <InputFieldModal
                           type="text"
                           name="ticket_class"
@@ -501,7 +501,7 @@ function TravelerForm() {
                         ></InputFieldModal>
                       </InputBox>
                       <InputBox>
-                        <ModalLabel htmlFor="departure_destination_country_code">Seat Number</ModalLabel>
+                        <ModalLabel htmlFor="ticket_seat_number">Seat Number</ModalLabel>
                         <InputFieldModal
                           type="text"
                           name="ticket_seat_number"
@@ -509,7 +509,7 @@ function TravelerForm() {
                         ></InputFieldModal>
                       </InputBox>
                       <InputBox>
-                        <ModalLabel htmlFor="departure_destination_country_code">Exit Row</ModalLabel>
+                        <ModalLabel htmlFor="ticket_exit_row">Exit Row</ModalLabel>
                         <InputFieldModal
                           type="text"
                           name="ticket_exit_row"
@@ -517,7 +517,7 @@ function TravelerForm() {
                         ></InputFieldModal>
                       </InputBox>
                       <InputBox>
-                        <ModalLabel htmlFor="departure_destination_country_code">Origin</ModalLabel>
+                        <ModalLabel htmlFor="ticket_origin">Origin</ModalLabel>
                         <InputFieldModal
                           type="text"
                           name="ticket_origin"
@@ -525,7 +525,7 @@ function TravelerForm() {
                         ></InputFieldModal>
                       </InputBox>
                       <InputBox>
-                        <ModalLabel htmlFor="departure_destination_country_code">Destination</ModalLabel>
+                        <ModalLabel htmlFor="ticket_destination">Destination</ModalLabel>
                         <InputFieldModal
                           type="text"
                           name="ticket_destination"
@@ -533,7 +533,7 @@ function TravelerForm() {
                         ></InputFieldModal>
                       </InputBox>
                       <InputBox>
-                        <ModalLabel htmlFor="departure_destination_country_code">Special Service Request</ModalLabel>
+                        <ModalLabel htmlFor="ticket_special_service_request">Special Service Request</ModalLabel>
                         <InputFieldModal
                           type="text"
                           name="ticket_special_service_request"
@@ -541,7 +541,7 @@ function TravelerForm() {
                         ></InputFieldModal>
                       </InputBox>
                       <InputBox>
-                        <ModalLabel htmlFor="departure_destination_country_code">Infant Accomdations</ModalLabel>
+                        <ModalLabel htmlFor="ticket_with_infant">Infant Accomdations</ModalLabel>
                         <InputFieldModal
                           type="text"
                           name="ticket_with_infant"
@@ -549,7 +549,7 @@ function TravelerForm() {
                         ></InputFieldModal>
                       </InputBox>
                       <InputBox>
-                        <ModalLabel htmlFor="departure_destination_country_code">Luggage</ModalLabel>
+                        <ModalLabel htmlFor="ticket_luggage">Luggage</ModalLabel>
                         <InputFieldModal
                           type="text"
                           name="ticket_luggage"
@@ -557,7 +557,7 @@ function TravelerForm() {
                         ></InputFieldModal>
                       </InputBox>
                       <InputBox>
-                        <ModalLabel htmlFor="departure_destination_country_code">Gate</ModalLabel>
+                        <ModalLabel htmlFor="boarding_gate">Gate</ModalLabel>
                         <InputFieldModal
                           type="text"
                           name="boarding_gate"
@@ -565,7 +565,7 @@ function TravelerForm() {
                         ></InputFieldModal>
                       </InputBox>
                       <InputBox>
-                        <ModalLabel htmlFor="departure_destination_country_code">Zone Group</ModalLabel>
+                        <ModalLabel htmlFor="boarding_zone_group">Zone Group</ModalLabel>
                         <InputFieldModal
                           type="text"
                           name="boarding_zone_group"
@@ -573,7 +573,7 @@ function TravelerForm() {
                         ></InputFieldModal>
                       </InputBox>
                       <InputBox>
-                        <ModalLabel htmlFor="departure_destination_country_code">Secondary Screening</ModalLabel>
+                        <ModalLabel htmlFor="boarding_secondary_screening">Secondary Screening</ModalLabel>
                         <InputFieldModal
                           type="text"
                           name="boarding_secondary_screening"
@@ -581,31 +581,31 @@ function TravelerForm() {
                         ></InputFieldModal>
                       </InputBox>
                       <InputBox>
-                        <ModalLabel htmlFor="departure_destination_country_code">Boarding Time</ModalLabel>
+                        <ModalLabel htmlFor="boarding_date_time">Boarding Date and Time</ModalLabel>
                         <InputFieldModal
-                          type="time"
+                          type="datetime-local"
                           name="boarding_date_time"
                           defaultValue={boardingPassDetails.boarding_date_time}
                         ></InputFieldModal>
                       </InputBox>
                       <InputBox>
-                        <ModalLabel htmlFor="departure_destination_country_code">Departure Time</ModalLabel>
+                        <ModalLabel htmlFor="boarding_departure_date_time">Departure Date and Time</ModalLabel>
                         <InputFieldModal
-                          type="time"
+                          type="datetime-local"
                           name="boarding_departure_date_time"
                           defaultValue={boardingPassDetails.boarding_departure_date_time}
                         ></InputFieldModal>
                       </InputBox>
                       <InputBox>
-                        <ModalLabel htmlFor="departure_destination_country_code">Arrival Time</ModalLabel>
+                        <ModalLabel htmlFor="boarding_arrival_date_time">Arrival Date and Time</ModalLabel>
                         <InputFieldModal
-                          type="time"
+                          type="datetime-local"
                           name="boarding_arrival_date_time"
                           defaultValue={boardingPassDetails.boarding_arrival_date_time}
                         ></InputFieldModal>
                       </InputBox>
                       <InputBox>
-                        <ModalLabel htmlFor="departure_destination_country_code">Frequent Flyer Airline</ModalLabel>
+                        <ModalLabel htmlFor="frequent_flyer_airline">Frequent Flyer Airline</ModalLabel>
                         <InputFieldModal
                           type="text"
                           name="frequent_flyer_airline"
@@ -613,7 +613,7 @@ function TravelerForm() {
                         ></InputFieldModal>
                       </InputBox>
                       <InputBox>
-                        <ModalLabel htmlFor="departure_destination_country_code">Frequent Flyer Number</ModalLabel>
+                        <ModalLabel htmlFor="frequent_flyer_number">Frequent Flyer Number</ModalLabel>
                         <InputFieldModal
                           type="text"
                           name="frequent_flyer_number"
@@ -621,7 +621,7 @@ function TravelerForm() {
                         ></InputFieldModal>
                       </InputBox>
                       <InputBox>
-                        <ModalLabel htmlFor="departure_destination_country_code">Frequent Flyer Status</ModalLabel>
+                        <ModalLabel htmlFor="frequent_flyer_status">Frequent Flyer Status</ModalLabel>
                         <InputFieldModal
                           type="text"
                           name="frequent_flyer_status"
