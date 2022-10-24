@@ -112,29 +112,40 @@ function TravelerForm() {
     const handleSubmit = (e) => {
         e.preventDefault()
         const form = new FormData(newForm.current)
-        const formData = {
-            traveler_phone: form.get('traveler_phone'),
-            traveler_email: form.get('traveler_email'),
-            traveler_country: form.get('traveler_country'),
-            traveler_country_of_origin: form.get('traveler_country_of_origin'),
-            arrival_airline: form.get('arrival_airline'),
-            arrival_flight_number: form.get('arrival_flight_number'),
-            arrival_date: form.get('arrival_date'),
-            arrival_destination_port_code: form.get('arrival_destination_port_code'),
-            arrival_destination_country_code: form.get('arrival_destination_country_code'),
-            departure_airline: form.get('departure_airline'),
-            departure_flight_number: form.get('departure_flight_number'),
-            departure_date: form.get('departure_date'),
-            departure_destination_port_code: form.get('departure_destination_port_code'),
-            departure_destination_country_code: form.get('departure_destination_country_code'),
+        const credentialData = {
+          passenger_given_names: verification.verifiedAttributes['given-names'],
+          frequent_flyer_status: form.get("frequent_flyer_status"),
+          passenger_family_names: verification.verifiedAttributes['family-names'],
+          boarding_arrival_date_time: form.get("boarding_arrival_date_time"),
+          boarding_gate: form.get("boarding_gate"),
+          ticket_exit_row: form.get("ticket_exit_row*"),
+          ticket_origin: form.get("ticket_origin"),
+          frequent_flyer_airline: form.get("frequent_flyer_airline"),
+          ticket_eticket_number: form.get("ticket_eticket_number"),
+          frequent_flyer_number: form.get("frequent_flyer_number"),
+          passenger_tsa_precheck: form.get("passenger_tsa_precheck"),
+          boarding_secondary_screening: form.get("boarding_secondary_screening"),
+          ticket_flight_number: form.get("ticket_flight_number"),
+          ticket_destination: form.get("ticket_destination"),
+          ticket_designated_carrier: form.get("ticket_designated_carrier"),
+          boarding_zone_group: form.get("boarding_zone_group"),
+          ticket_operating_carrier: form.get("ticket_operating_carrier"),
+          boarding_departure_date_time: form.get("boarding_departure_date_time"),
+          ticket_special_service_request: form.get("ticket_special_service_request"),
+          booking_reference_number: form.get("booking_reference_number"),
+          airline_alliance: form.get("airline_alliance"),
+          ticket_with_infant: form.get("ticket_with_infant"),
+          ticket_seat_number: form.get("ticket_seat_number"),
+          passenger_image: form.get("passenger_image"),
+          boarding_date_time: form.get("boarding_date_time"),
+          ticket_class: form.get("ticket_class"),
           }
 
           Axios({
             method: 'POST',
             url: `/api/credentials/`,
             data: {
-              boardingData: formData, 
-              credentialData: verification.verifiedAttributes, 
+              credentialData: credentialData, 
               connectionId: verification.connectionId
             }
           }).then(() => {
@@ -411,13 +422,12 @@ function TravelerForm() {
                       Boarding Pass Details
                     </HeaderVerify>
                   </FormWrapper>
-
                       <InputBox>
                         <ModalLabel htmlFor="departure_airline">Given Name</ModalLabel>
                         <InputFieldModal
                           type="text"
                           name="passenger_given_names"
-                          defaultValue={boardingPassDetails.passenger_given_names}
+                          defaultValue={verification.verifiedAttributes['given-names']}
                         ></InputFieldModal>
                       </InputBox>
                       <InputBox>
@@ -425,7 +435,7 @@ function TravelerForm() {
                         <InputFieldModal
                           type="text"
                           name="passenger_family_names"
-                          defaultValue={boardingPassDetails.passenger_family_names}
+                          defaultValue={verification.verifiedAttributes['family-name']}
                         ></InputFieldModal>
                       </InputBox>
                       <InputBox>
@@ -433,7 +443,7 @@ function TravelerForm() {
                         <InputFieldModal
                           type="text"
                           name="passenger_image"
-                          defaultValue={boardingPassDetails.passenger_image}
+                          defaultValue={verification.verifiedAttributes['chip-photo']}
                         ></InputFieldModal>
                       </InputBox>
                       <InputBox>
