@@ -84,7 +84,7 @@ select {
   position: sticky;
   display: flex;
   justify-content: space-between;
-  background-image: url('./assets/sita-blue.jpeg');
+  /* background-image: url(''); */
   margin: 30px 0px 30px 0px;
 }
 
@@ -140,7 +140,7 @@ select {
   position: relative;
   display: table;
   min-height: 14em;
-  background-image: url('./assets/boarding-pass-banner.png');
+  background-image: url('./assets/boarding-pass-banner.jpg');
   background-repeat: no-repeat;
   background-size: cover;
   width: 100%;
@@ -296,6 +296,15 @@ select {
   position: absolute;
   line-height: 913px;
   margin-left: 660px;
+}
+
+.chip-photo {
+  position: absolute;
+  top: 160px;
+  margin-left: 15px;
+  width: 305px;
+  height: 305px;
+  object-fit: cover;
 }
 
 /* The container <div> - needed to position the dropdown content */

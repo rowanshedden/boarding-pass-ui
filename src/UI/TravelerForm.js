@@ -38,12 +38,13 @@ import {
 
 function TravelerForm() {
   const [invitation, setInvitation] = useState('')
-  const [verificationComplete, setVerificationComplete] = useState(true)
+  const [verificationComplete, setVerificationComplete] = useState(false)
   const [formSubmitted, setFormSubmitted] = useState(false)
   const [verification, setVerification] = useState({})
   const [errMessage, setErrMessage] = useState('')
-  const [toggleForm, setToggleForm] = useState(true)
+  const [toggleForm, setToggleForm] = useState(false)
   const [boardingPassDetails, setBoardingPassDetails] = useState({})
+  const [verifiedImage, setVerifiedImage] = useState("")
 
   const effectRan = useRef()
   const newForm = useRef()
@@ -73,7 +74,6 @@ function TravelerForm() {
     }
   }, [])
 
-  // verification and credentials
   useEffect(() => {
     if (invitation.invitation_id && !verificationComplete) {
       Axios({
@@ -98,6 +98,16 @@ function TravelerForm() {
           })
         })
         
+        //(AmmonBurgi) If needed, format the base64 to be compatible with an html img element
+        if (verifiedAttributes['chip-photo']) {
+          const imageParts = verifiedAttributes['chip-photo'].split(',')
+          if (imageParts[0] !== 'data:image/png;base64') {
+            setVerifiedImage('data:image/png;base64,' + verifiedAttributes['chip-photo'])
+          } else {
+            setVerifiedImage(verifiedAttributes['chip-photo'])
+          }
+        }
+
         setVerification({connectionId: verificationRecords[0].connection_id, verifiedAttributes: verifiedAttributes})
       }).catch(err => {
         console.error('Error: ', err)
@@ -114,31 +124,31 @@ function TravelerForm() {
         const form = new FormData(newForm.current)
         const credentialData = {
           passenger_given_names: verification.verifiedAttributes['given-names'],
-          frequent_flyer_status: form.get("frequent_flyer_status"),
-          passenger_family_names: verification.verifiedAttributes['family-names'],
-          boarding_arrival_date_time: form.get("boarding_arrival_date_time"),
-          boarding_gate: form.get("boarding_gate"),
-          ticket_exit_row: form.get("ticket_exit_row*"),
-          ticket_origin: form.get("ticket_origin"),
-          frequent_flyer_airline: form.get("frequent_flyer_airline"),
-          ticket_eticket_number: form.get("ticket_eticket_number"),
-          frequent_flyer_number: form.get("frequent_flyer_number"),
-          passenger_tsa_precheck: form.get("passenger_tsa_precheck"),
-          boarding_secondary_screening: form.get("boarding_secondary_screening"),
-          ticket_flight_number: form.get("ticket_flight_number"),
-          ticket_destination: form.get("ticket_destination"),
-          ticket_designated_carrier: form.get("ticket_designated_carrier"),
-          boarding_zone_group: form.get("boarding_zone_group"),
-          ticket_operating_carrier: form.get("ticket_operating_carrier"),
-          boarding_departure_date_time: form.get("boarding_departure_date_time"),
-          ticket_special_service_request: form.get("ticket_special_service_request"),
-          booking_reference_number: form.get("booking_reference_number"),
+          passenger_family_names: verification.verifiedAttributes['family-name'],
+          passenger_image: verification.verifiedAttributes['chip-photo'],
           airline_alliance: form.get("airline_alliance"),
-          ticket_with_infant: form.get("ticket_with_infant"),
-          ticket_seat_number: form.get("ticket_seat_number"),
-          passenger_image: form.get("passenger_image"),
-          boarding_date_time: form.get("boarding_date_time"),
+          passenger_tsa_precheck: form.get("passenger_tsa_precheck"),
+          booking_reference_number: form.get("booking_reference_number"),
+          ticket_eticket_number: form.get("ticket_eticket_number"),
+          ticket_designated_carrier: form.get("ticket_designated_carrier"),
+          ticket_operating_carrier: form.get("ticket_operating_carrier"),
+          ticket_flight_number: form.get("ticket_flight_number"),
           ticket_class: form.get("ticket_class"),
+          ticket_seat_number: form.get("ticket_seat_number"),
+          "ticket_exit_row*": form.get("ticket_exit_row*"),
+          ticket_origin: form.get("ticket_origin"),
+          ticket_destination: form.get("ticket_destination"),
+          ticket_special_service_request: form.get("ticket_special_service_request"),
+          ticket_with_infant: form.get("ticket_with_infant"),
+          boarding_gate: form.get("boarding_gate"),
+          boarding_zone_group: form.get("boarding_zone_group"),
+          boarding_secondary_screening: form.get("boarding_secondary_screening"),
+          boarding_date_time: form.get("boarding_date_time"),
+          boarding_departure_date_time: form.get("boarding_departure_date_time"),
+          boarding_arrival_date_time: form.get("boarding_arrival_date_time"),
+          frequent_flyer_airline: form.get("frequent_flyer_airline"),
+          frequent_flyer_number: form.get("frequent_flyer_number"),
+          frequent_flyer_status: form.get("frequent_flyer_status"),
           }
 
           Axios({
@@ -174,7 +184,7 @@ function TravelerForm() {
               ticket_flight_number: 'DA152',
               ticket_class: 'Economy',
               ticket_seat_number: '15B',
-              ticket_exit_row: 'No',
+              "ticket_exit_row*": 'No',
               ticket_origin: 'LAX',
               ticket_destination: 'CDG',
               ticket_special_service_request: 'None', 
@@ -207,7 +217,7 @@ function TravelerForm() {
               ticket_flight_number: 'AS155',
               ticket_class: 'First Class',
               ticket_seat_number: '55A',
-              ticket_exit_row: 'No',
+              "ticket_exit_row*": 'No',
               ticket_origin: 'LHR',
               ticket_destination: 'BKK',
               ticket_special_service_request: 'None',
@@ -240,7 +250,7 @@ function TravelerForm() {
               ticket_flight_number: '',
               ticket_class: '',
               ticket_seat_number: '',
-              ticket_exit_row: '',
+              "ticket_exit_row*": '',
               ticket_origin: '',
               ticket_destination: '',
               ticket_special_service_request: '', 
@@ -290,6 +300,8 @@ function TravelerForm() {
                    </div>
                    <div className='two-third-column'>
                       <div className='passport-div'>
+                       {verifiedImage ? (
+                       <img className='chip-photo' src={verifiedImage} alt='Passport Photo' />) : null}
                        <span className='type'>{attributes['document-type'] ? attributes['document-type'] : ''}</span>
                        <span className='country-code'>UTO</span>
                        <span className='passport-number'>{attributes['document-number'] ? attributes['document-number'] : ''}</span>
@@ -422,12 +434,14 @@ function TravelerForm() {
                       Boarding Pass Details
                     </HeaderVerify>
                   </FormWrapper>
+                      <img src={verifiedImage} alt="DTC"/>
                       <InputBox>
                         <ModalLabel htmlFor="passenger_given_names">Given Name</ModalLabel>
                         <InputFieldModal
                           type="text"
                           name="passenger_given_names"
-                          defaultValue={verification.verifiedAttributes['given-names']}
+                          value={
+                            verification.verifiedAttributes ? verification.verifiedAttributes['given-names'] : ''}
                         ></InputFieldModal>
                       </InputBox>
                       <InputBox>
@@ -435,7 +449,8 @@ function TravelerForm() {
                         <InputFieldModal
                           type="text"
                           name="passenger_family_names"
-                          defaultValue={verification.verifiedAttributes['family-name']}
+                          value={
+                            verification.verifiedAttributes ? verification.verifiedAttributes['family-name'] : ''}
                         ></InputFieldModal>
                       </InputBox>
                       <InputBox>
@@ -443,7 +458,8 @@ function TravelerForm() {
                         <InputFieldModal
                           type="text"
                           name="passenger_image"
-                          defaultValue={verification.verifiedAttributes['chip-photo']}
+                          value={
+                            verification.verifiedAttributes ? verification.verifiedAttributes['chip-photo'] : ''}
                         ></InputFieldModal>
                       </InputBox>
                       <InputBox>
@@ -519,11 +535,11 @@ function TravelerForm() {
                         ></InputFieldModal>
                       </InputBox>
                       <InputBox>
-                        <ModalLabel htmlFor="ticket_exit_row">Exit Row</ModalLabel>
+                        <ModalLabel htmlFor="ticket_exit_row*">Exit Row</ModalLabel>
                         <InputFieldModal
                           type="text"
-                          name="ticket_exit_row"
-                          defaultValue={boardingPassDetails.ticket_exit_row}
+                          name="ticket_exit_row*"
+                          defaultValue={boardingPassDetails["ticket_exit_row*"]}
                         ></InputFieldModal>
                       </InputBox>
                       <InputBox>
@@ -719,7 +735,6 @@ function TravelerForm() {
 
     return (
         <div> 
-            {console.log(verification)}
             {!errMessage ? (
             invitation && invitation.invitation_url && verificationComplete ? (    
                 !toggleForm ? ( 
