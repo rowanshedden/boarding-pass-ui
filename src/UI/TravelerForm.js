@@ -101,8 +101,8 @@ function TravelerForm() {
         //(AmmonBurgi) If needed, format the base64 to be compatible with an html img element
         if (verifiedAttributes['chip-photo']) {
           const imageParts = verifiedAttributes['chip-photo'].split(',')
-          if (imageParts[0] !== 'data:image/png;base64') {
-            setVerifiedImage('data:image/png;base64,' + verifiedAttributes['chip-photo'])
+          if (imageParts[0] !== 'data:image/jpeg;base64') {
+            setVerifiedImage('data:image/jpeg;base64,' + verifiedAttributes['chip-photo'])
           } else {
             setVerifiedImage(verifiedAttributes['chip-photo'])
           }
@@ -435,27 +435,15 @@ function TravelerForm() {
                     </HeaderVerify>
                   </FormWrapper>
 
-                  <ModalLabel htmlFor="passenger_image" className='profile-label'>DTC Photo</ModalLabel>
-                  <img className="profile-pic" src={verifiedImage} alt="DTC-pic"/>
+                  {/* <ModalLabel htmlFor="passenger_image" className='profile-label'>DTC Photo</ModalLabel>
+                  <img className="profile-pic" src={verifiedImage} alt="DTC-pic"/> */}
                       <InputBox>
                         <ModalLabel htmlFor="passenger_given_names">Given Name</ModalLabel>
-                        <InputFieldModal
-                          type="text"
-                          className="mid-input"
-                          name="passenger_given_names"
-                          value={
-                            verification.verifiedAttributes ? verification.verifiedAttributes['given-names'] : ''}
-                        ></InputFieldModal>
+                        <DataValue>{verification.verifiedAttributes ? verification.verifiedAttributes['given-names'] : ''}</DataValue>
                       </InputBox>
                       <InputBox>
                         <ModalLabel htmlFor="passenger_family_names">Family Name</ModalLabel>
-                        <InputFieldModal
-                          type="text"
-                          className="mid-input"
-                          name="passenger_family_names"
-                          value={
-                            verification.verifiedAttributes ? verification.verifiedAttributes['family-name'] : ''}
-                        ></InputFieldModal>
+                        <DataValue>{verification.verifiedAttributes ? verification.verifiedAttributes['family-name'] : ''}</DataValue>
                       </InputBox>
                       <InputBox>
                         <ModalLabel htmlFor="airline_alliance">Airline Alliance</ModalLabel>
