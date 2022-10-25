@@ -148,7 +148,6 @@ select {
 }
 
 .bar-row {
-  /* background-image: url('./assets/sita-blue.jpeg'); */
   background: #11172B;
   padding: 20px 40px; 
 }
@@ -168,7 +167,6 @@ select {
   position: relative;
   color: white;
   font-size: calc(10px + 0.390625vw);
-  /* background-image: url('./assets/sita-blue.jpeg'); */
   background: #11172B;
   padding: 20px 40px; 
   height: calc(60px + 0.390625vw);
@@ -318,4 +316,18 @@ select {
 
 .spacing {
   margin-top: 20px;
+}
+
+.profile-label {
+  position: relative;
+  left: 55px;
+  bottom: 70px;
+}
+
+.profile-pic {
+  position: relative;
+  left: 50px;
+  top: 10px;
+  width: 200px;
+  height: 200px;
 }

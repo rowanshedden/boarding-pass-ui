@@ -301,7 +301,7 @@ function TravelerForm() {
                    <div className='two-third-column'>
                       <div className='passport-div'>
                        {verifiedImage ? (
-                       <img className='chip-photo' src={verifiedImage} alt='Passport Photo' />) : null}
+                       <img className='chip-photo' src={verifiedImage} alt='Passport' />) : null}
                        <span className='type'>{attributes['document-type'] ? attributes['document-type'] : ''}</span>
                        <span className='country-code'>UTO</span>
                        <span className='passport-number'>{attributes['document-number'] ? attributes['document-number'] : ''}</span>
@@ -434,11 +434,14 @@ function TravelerForm() {
                       Boarding Pass Details
                     </HeaderVerify>
                   </FormWrapper>
-                      <img src={verifiedImage} alt="DTC"/>
+
+                  <ModalLabel htmlFor="passenger_image" className='profile-label'>DTC Photo</ModalLabel>
+                  <img className="profile-pic" src={verifiedImage} alt="DTC-pic"/>
                       <InputBox>
                         <ModalLabel htmlFor="passenger_given_names">Given Name</ModalLabel>
                         <InputFieldModal
                           type="text"
+                          className="mid-input"
                           name="passenger_given_names"
                           value={
                             verification.verifiedAttributes ? verification.verifiedAttributes['given-names'] : ''}
@@ -448,18 +451,10 @@ function TravelerForm() {
                         <ModalLabel htmlFor="passenger_family_names">Family Name</ModalLabel>
                         <InputFieldModal
                           type="text"
+                          className="mid-input"
                           name="passenger_family_names"
                           value={
                             verification.verifiedAttributes ? verification.verifiedAttributes['family-name'] : ''}
-                        ></InputFieldModal>
-                      </InputBox>
-                      <InputBox>
-                        <ModalLabel htmlFor="passenger_image">Image</ModalLabel>
-                        <InputFieldModal
-                          type="text"
-                          name="passenger_image"
-                          value={
-                            verification.verifiedAttributes ? verification.verifiedAttributes['chip-photo'] : ''}
                         ></InputFieldModal>
                       </InputBox>
                       <InputBox>
@@ -768,7 +763,7 @@ function TravelerForm() {
         //              </div>
         //              <div className='content-text'>
         //                <p>You can still check-in, but you will need to visit the front desk at 
-        //                  the Bucuti Resort. </p>
+        //                  the corresponding airline. </p>
         //              </div>
         //            </div>
         //            </div>
