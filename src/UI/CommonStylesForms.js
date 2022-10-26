@@ -124,9 +124,9 @@ export const Logo = styled.img`
 `
 export const PoweredByLogo = styled.img`
   position: absolute;
-  width: 150px;
+  width: 140px;
   right: 25px;
-  top: -40px;
+  top: 10px;
 `
 export const Bubble = styled.img`
   position: absolute;

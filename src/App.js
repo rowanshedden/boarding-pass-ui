@@ -4,7 +4,7 @@ import styled from 'styled-components'
 
 import logo from './assets/airline-logo.png'
 import language from './assets/language.svg'
-import poweredByLogo from './assets/powered-by.png'
+import poweredByLogo from './assets/sita-logo.png'
 
 import {
   Logo,
