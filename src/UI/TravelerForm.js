@@ -128,18 +128,19 @@ function TravelerForm() {
           passenger_image: verification.verifiedAttributes['chip-photo'],
           airline_alliance: form.get("airline_alliance"),
           passenger_tsa_precheck: form.get("passenger_tsa_precheck"),
-          booking_reference_number: form.get("booking_reference_number"),
+          pnr: form.get("pnr"),
           ticket_eticket_number: form.get("ticket_eticket_number"),
           ticket_designated_carrier: form.get("ticket_designated_carrier"),
           ticket_operating_carrier: form.get("ticket_operating_carrier"),
           ticket_flight_number: form.get("ticket_flight_number"),
           ticket_class: form.get("ticket_class"),
           ticket_seat_number: form.get("ticket_seat_number"),
-          "ticket_exit_row*": form.get("ticket_exit_row*"),
+          ticket_exit_row: form.get("ticket_exit_row"),
           ticket_origin: form.get("ticket_origin"),
           ticket_destination: form.get("ticket_destination"),
           ticket_special_service_request: form.get("ticket_special_service_request"),
           ticket_with_infant: form.get("ticket_with_infant"),
+          ticket_luggage: form.get("ticket_luggage"),
           boarding_gate: form.get("boarding_gate"),
           boarding_zone_group: form.get("boarding_zone_group"),
           boarding_secondary_screening: form.get("boarding_secondary_screening"),
@@ -149,6 +150,10 @@ function TravelerForm() {
           frequent_flyer_airline: form.get("frequent_flyer_airline"),
           frequent_flyer_number: form.get("frequent_flyer_number"),
           frequent_flyer_status: form.get("frequent_flyer_status"),
+          standby_status: form.get("standby_status"),
+          standby_boarding_date: form.get("standby_boarding_date"),
+          standby_priority: form.get("standby_priority"),
+          sequence_number: form.get("sequence_number"),
           }
 
           Axios({
@@ -177,14 +182,14 @@ function TravelerForm() {
               passenger_image: 'blank', 
               airline_alliance: 'Sky Team', 
               passenger_tsa_precheck: 'Yes',
-              booking_reference_number: '55589', 
+              pnr: '55589', 
               ticket_eticket_number: '109420123',
               ticket_designated_carrier: 'Delta',
               ticket_operating_carrier: 'Spirit Air',
               ticket_flight_number: 'DA152',
               ticket_class: 'Economy',
               ticket_seat_number: '15B',
-              "ticket_exit_row*": 'No',
+              ticket_exit_row: 'No',
               ticket_origin: 'LAX',
               ticket_destination: 'CDG',
               ticket_special_service_request: 'None', 
@@ -199,6 +204,10 @@ function TravelerForm() {
               frequent_flyer_airline: 'American Airlines',
               frequent_flyer_number: '9080',
               frequent_flyer_status: 'Silver',
+              standby_status: 'Revenue',
+              standby_boarding_date: '2023-04-04',
+              standby_priority: 'Space Available 1',
+              sequence_number: '5'
             })
   
           break;
@@ -210,14 +219,14 @@ function TravelerForm() {
               passenger_image: 'blank', 
               airline_alliance: 'Star Alliance', 
               passenger_tsa_precheck: 'Yes',
-              booking_reference_number: '7778', 
+              pnr: '7778', 
               ticket_eticket_number: '7240182',
               ticket_designated_carrier: 'Asiana',
               ticket_operating_carrier: 'Singapore Air',
               ticket_flight_number: 'AS155',
               ticket_class: 'First Class',
               ticket_seat_number: '55A',
-              "ticket_exit_row*": 'No',
+              ticket_exit_row: 'No',
               ticket_origin: 'LHR',
               ticket_destination: 'BKK',
               ticket_special_service_request: 'None',
@@ -232,6 +241,10 @@ function TravelerForm() {
               frequent_flyer_airline: 'Alaska Airlines',
               frequent_flyer_number: '874412',
               frequent_flyer_status: 'Gold',
+              standby_status: 'Non-Revenue',
+              standby_boarding_date: '2023-10-07',
+              standby_priority: 'Space Available 7',
+              sequence_number: '3'
             })
 
             break;
@@ -243,14 +256,14 @@ function TravelerForm() {
               passenger_image: '', 
               airline_alliance: '', 
               passenger_tsa_precheck: '',
-              booking_reference_number: '', 
+              pnr: '', 
               ticket_eticket_number: '',
               ticket_designated_carrier: '',
               ticket_operating_carrier: '',
               ticket_flight_number: '',
               ticket_class: '',
               ticket_seat_number: '',
-              "ticket_exit_row*": '',
+              ticket_exit_row: '',
               ticket_origin: '',
               ticket_destination: '',
               ticket_special_service_request: '', 
@@ -265,6 +278,10 @@ function TravelerForm() {
               frequent_flyer_airline: '',
               frequent_flyer_number: '',
               frequent_flyer_status: '',
+              standby_status: '',
+              standby_boarding_date: '',
+              standby_priority: '',
+              sequence_number: ''
             })
             break;
         }
@@ -462,11 +479,11 @@ function TravelerForm() {
                         ></InputFieldModal>
                       </InputBox>
                       <InputBox>
-                        <ModalLabel htmlFor="booking_reference_number">Booking Reference Number</ModalLabel>
+                        <ModalLabel htmlFor="pnr">PNR</ModalLabel>
                         <InputFieldModal
                           type="text"
-                          name="booking_reference_number"
-                          defaultValue={boardingPassDetails.booking_reference_number}
+                          name="pnr"
+                          defaultValue={boardingPassDetails.pnr}
                         ></InputFieldModal>
                       </InputBox>
                       <InputBox>
@@ -518,11 +535,11 @@ function TravelerForm() {
                         ></InputFieldModal>
                       </InputBox>
                       <InputBox>
-                        <ModalLabel htmlFor="ticket_exit_row*">Exit Row</ModalLabel>
+                        <ModalLabel htmlFor="ticket_exit_row">Exit Row</ModalLabel>
                         <InputFieldModal
                           type="text"
-                          name="ticket_exit_row*"
-                          defaultValue={boardingPassDetails["ticket_exit_row*"]}
+                          name="ticket_exit_row"
+                          defaultValue={boardingPassDetails.ticket_exit_row}
                         ></InputFieldModal>
                       </InputBox>
                       <InputBox>
@@ -637,6 +654,38 @@ function TravelerForm() {
                           defaultValue={boardingPassDetails.frequent_flyer_status}
                         ></InputFieldModal>
                       </InputBox>
+                      <InputBox>
+                        <ModalLabel htmlFor="standby_status">Standby Status</ModalLabel>
+                        <InputFieldModal
+                          type="text"
+                          name="standby_status"
+                          defaultValue={boardingPassDetails.standby_status}
+                        ></InputFieldModal>
+                      </InputBox>
+                      <InputBox>
+                        <ModalLabel htmlFor="standby_boarding_gate">Standby Boarding Date</ModalLabel>
+                        <InputFieldModal
+                          type="date"
+                          name="standby_boarding_date"
+                          defaultValue={boardingPassDetails.standby_boarding_date}
+                        ></InputFieldModal>
+                      </InputBox>
+                      <InputBox>
+                        <ModalLabel htmlFor="standby_priority">Standby Priority</ModalLabel>
+                        <InputFieldModal
+                          type="text"
+                          name="standby_priority"
+                          defaultValue={boardingPassDetails.standby_priority}
+                        ></InputFieldModal>
+                      </InputBox>
+                      <InputBox>
+                        <ModalLabel htmlFor="sequence_number">Sequence Number</ModalLabel>
+                        <InputFieldModal
+                          type="text"
+                          name="sequence_number"
+                          defaultValue={boardingPassDetails.sequence_number}
+                        ></InputFieldModal>
+                      </InputBox>
                     </FormContainer>
                       <p className='text-center'><BtnLarge type="submit">Submit →</BtnLarge></p>
                       </Form>   
@@ -732,30 +781,32 @@ function TravelerForm() {
                ) : ( 
                 invitationDisplay
                )
-           ) : ( 
-            formDisplay 
+           ) : (  
 
-        //      <div> 
-        //      <div className="plane-row">
-        //            <div className="one-third-column">
-        //              <div className="title-center-text">
-        //                System Error
-        //              </div>
-        //            </div>
-        //            <div className="two-third-column"></div>
-        //          </div>
-        //          <div className='content-row'>
-        //            <div className='one-third-column'>
-        //              <div className='content-text'>
-        //                <p>We're sorry, but there was an error with your submission.</p>
-        //              </div>
-        //              <div className='content-text'>
-        //                <p>You can still check-in, but you will need to visit the front desk at 
-        //                  the corresponding airline. </p>
-        //              </div>
-        //            </div>
-        //            </div>
-        //  </div>
+            <div>
+             <div className="plane-row">
+                   <div className="one-third-column">
+                     <div className="title-center-text">
+                       System Error
+                     </div>
+                   </div>
+                   <div className="two-third-column">
+                   </div>
+              </div>
+                  <div className='content-row'>
+                    <div className='one-third-column'>
+                      <div className='content-text'>
+                        <p>We're sorry, but there was an error with your submission.</p>
+                      </div>
+                      <div className='content-text'>
+                        <p>You can still check-in, but you will need to visit the front desk at 
+                          the corresponding airline. 
+                         </p>
+                      </div>
+                    </div>
+                    </div>
+          </div>
+
        )}        
     </div>
   )
