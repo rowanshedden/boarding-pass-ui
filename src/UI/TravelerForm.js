@@ -567,7 +567,7 @@ function TravelerForm() {
                         ></InputFieldModal>
                       </InputBox>
                       <InputBox>
-                        <ModalLabel htmlFor="ticket_with_infant">Infant Accomdations</ModalLabel>
+                        <ModalLabel htmlFor="ticket_with_infant">Infant Accommodations</ModalLabel>
                         <InputFieldModal
                           type="text"
                           name="ticket_with_infant"
