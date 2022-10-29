@@ -1,17 +1,6 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
+/* .App {
+  
+}  */
 
 .App-header {
   background-color: #282c34;
@@ -24,15 +13,319 @@
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+html {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  font-family: 'Source Sans Pro';
+  background-size: 100%;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  min-width: 100%;
+  min-height: 100vh;
+  font-size: 16px;
+  overflow-x: hidden;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin-top: 0;
+}
+
+h2,
+h3 {
+  font-weight: normal;
+}
+
+p {
+  margin: 0 0 1.4em 0;
+}
+
+select {
+  font-size: 16px;
+  width: 40%;
+  padding: 4px;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.title-case {
+  text-transform: capitalize;
+}
+
+.header-bar {
+  position: sticky;
+  display: flex;
+  justify-content: space-between;
+  height: 60px;
+  background-color: white;
+  border-radius: 15px;
+}
+
+.mid-div {
+  position: sticky;
+  display: flex;
+  justify-content: space-between;
+  /* background-image: url(''); */
+  margin: 30px 0px 30px 0px;
+}
+
+.title-text {
+  color: white;
+  font-size: calc(30px + 0.390625vw);
+  width: 100%;
+  padding: 0px;
+  vertical-align: middle;
+  margin-bottom: 0.6em;
+}
+
+.title-center-text {
+  color: white;
+  font-size: calc(30px + 0.390625vw);
+  width: 100%;
+  margin-top: 1.9em;
+}
+
+.title-success-text {
+  color: white;
+  font-size: calc(30px + 0.390625vw);
+  width: 100%;
+  margin-top: 0.6em;
+}
+
+.title-explain-text {
+  color: white;
+  font-size: calc(10px + 0.390625vw);
+  width: 100%;
+  padding: 0px;
+}
+
+.bold-bar-text {
+  color: white;
+  font-weight: bold;
+  font-size: calc(10px + 0.390625vw);
+}
+
+.bar-text {
+  color: white;
+  font-size: calc(7px + 0.390625vw);
+  margin-left: 5px;
+}
+
+.content-text {
+  color: black;
+  font-size: calc(15px + 0.390625vw);
+  width: 100%;
+}
+
+.plane-row {
+  position: relative;
+  display: table;
+  min-height: 14em;
+  background-image: url('./assets/boarding-pass-banner.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  padding: 20px 40px;
+}
+
+.bar-row {
+  background: #11172b;
+  padding: 20px 40px;
+}
+
+.content-row {
+  background: white;
+  padding: 20px 40px;
+  overflow: hidden;
+}
+
+.header {
+  height: 90px;
+  padding: 20px 40px;
+}
+
+.footer {
+  position: relative;
+  color: white;
+  font-size: calc(10px + 0.390625vw);
+  background: #11172b;
+  padding: 20px 40px;
+  height: calc(60px + 0.390625vw);
+}
+
+.one-third-column {
+  float: left;
+  width: 33.33%;
+}
+
+.two-third-column {
+  float: left;
+  width: 66.66%;
+}
+
+@media (max-width: 720px) {
+  .one-third-column {
+    float: none;
+    width: 100%;
   }
-  to {
-    transform: rotate(360deg);
+
+  .two-third-column {
+    float: none;
+    width: 100%;
   }
 }
+
+.row:after {
+  content: '';
+  display: table;
+  clear: both;
+}
+
+.passport-div {
+  position: relative;
+  background-image: url('./assets/utopia-passport.jpg');
+  background-repeat: no-repeat;
+  height: 670px;
+  width: 100%;
+  font-size: 20px;
+  text-transform: uppercase;
+}
+
+.type {
+  position: absolute;
+  line-height: 250px;
+  margin-left: 345px;
+}
+
+.country-code {
+  position: absolute;
+  line-height: 250px;
+  margin-left: 455px;
+}
+
+.passport-number {
+  position: absolute;
+  line-height: 250px;
+  margin-left: 660px;
+}
+
+.surname {
+  position: absolute;
+  line-height: 350px;
+  margin-left: 345px;
+}
+
+.given-names {
+  position: absolute;
+  line-height: 440px;
+  margin-left: 345px;
+}
+
+.nationality {
+  position: absolute;
+  line-height: 535px;
+  margin-left: 345px;
+}
+
+.birth-date {
+  position: absolute;
+  line-height: 640px;
+  margin-left: 345px;
+}
+
+.personal-number {
+  position: absolute;
+  line-height: 640px;
+  margin-left: 660px;
+}
+
+.sex {
+  position: absolute;
+  line-height: 730px;
+  margin-left: 345px;
+}
+
+.birth-place {
+  position: absolute;
+  line-height: 730px;
+  margin-left: 455px;
+}
+
+.issue-date {
+  position: absolute;
+  line-height: 833px;
+  margin-left: 345px;
+}
+
+.authority {
+  position: absolute;
+  line-height: 833px;
+  margin-left: 660px;
+}
+
+.expiry-date {
+  position: absolute;
+  line-height: 913px;
+  margin-left: 345px;
+}
+
+.holder-signature {
+  position: absolute;
+  line-height: 913px;
+  margin-left: 660px;
+}
+
+.chip-photo {
+  position: absolute;
+  top: 160px;
+  margin-left: 15px;
+  width: 305px;
+  height: 305px;
+  object-fit: cover;
+}
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+  /* position: relative;
+  display: inline-block; */
+  font-size: 16px;
+  width: 40%;
+  padding: 4px;
+}
+
+.spacing {
+  margin-top: 20px;
+}
+
+/* .profile-label {
+  position: relative;
+  left: 55px;
+  bottom: 70px;
+}
+
+.profile-pic {
+  position: relative;
+  left: 50px;
+  top: 10px;
+  width: 200px;
+  height: 200px;
+} */
