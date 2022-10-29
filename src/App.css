@@ -28,7 +28,7 @@ html {
 *:before,
 *:after {
   box-sizing: inherit;
-} 
+}
 
 body {
   margin: 0;
@@ -55,7 +55,7 @@ h3 {
 
 p {
   margin: 0 0 1.4em 0;
-} 
+}
 
 select {
   font-size: 16px;
@@ -144,12 +144,12 @@ select {
   background-repeat: no-repeat;
   background-size: cover;
   width: 100%;
-  padding: 20px 40px; 
+  padding: 20px 40px;
 }
 
 .bar-row {
-  background: #11172B;
-  padding: 20px 40px; 
+  background: #11172b;
+  padding: 20px 40px;
 }
 
 .content-row {
@@ -167,8 +167,8 @@ select {
   position: relative;
   color: white;
   font-size: calc(10px + 0.390625vw);
-  background: #11172B;
-  padding: 20px 40px; 
+  background: #11172b;
+  padding: 20px 40px;
   height: calc(60px + 0.390625vw);
 }
 
@@ -187,7 +187,7 @@ select {
     float: none;
     width: 100%;
   }
-  
+
   .two-third-column {
     float: none;
     width: 100%;
@@ -195,7 +195,7 @@ select {
 }
 
 .row:after {
-  content: "";
+  content: '';
   display: table;
   clear: both;
 }
@@ -240,7 +240,6 @@ select {
   margin-left: 345px;
 }
 
-
 .nationality {
   position: absolute;
   line-height: 535px;
@@ -276,7 +275,6 @@ select {
   line-height: 833px;
   margin-left: 345px;
 }
-
 
 .authority {
   position: absolute;

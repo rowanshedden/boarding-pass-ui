@@ -78,7 +78,7 @@ export const SubmitBtn = styled.button`
   color: white;
   border: none;
   box-shadow: ${(props) => props.theme.drop_shadow};
-  background: #B7142C;
+  background: #b7142c;
   :hover {
     cursor: pointer;
   }
@@ -92,26 +92,26 @@ export const Btn = styled.button`
   color: white;
   border: none;
   box-shadow: ${(props) => props.theme.drop_shadow};
-  background: #B7142C;
+  background: #b7142c;
   :hover {
     cursor: pointer;
   }
 `
 
 export const BtnLarge = styled.button`
-display: inline;
-padding: 10px 20px;
-font-size: 1.3em;
-font-weight: bold;
-text-transform: uppercase;
-border-radius: 10000px;
-color: white;
-border: none;
-box-shadow: ${(props) => props.theme.drop_shadow};
-background: #B7142C;
-:hover {
-  cursor: pointer;
-}
+  display: inline;
+  padding: 10px 20px;
+  font-size: 1.3em;
+  font-weight: bold;
+  text-transform: uppercase;
+  border-radius: 10000px;
+  color: white;
+  border: none;
+  box-shadow: ${(props) => props.theme.drop_shadow};
+  background: #b7142c;
+  :hover {
+    cursor: pointer;
+  }
 `
 export const LogoHolder = styled.div`
   padding: 20px 0 10px 0;
@@ -135,16 +135,19 @@ export const Bubble = styled.img`
   right: 40px;
   top: -50px;
   z-index: 100;
-  @keyframes rotate{
-    0%{-webkit-transform:rotate(0deg);transform:rotate(0deg)}
-    to{-webkit-transform:rotate(1turn);transform:rotate(1turn)}
+  @keyframes rotate {
+    0% {
+      -webkit-transform: rotate(0deg);
+      transform: rotate(0deg);
+    }
+    to {
+      -webkit-transform: rotate(1turn);
+      transform: rotate(1turn);
+    }
   }
 `
 export const Language = styled.img`
   width: 20px;
   vertical-align: middle;
 `
-export const Form = styled.form`
-`
-
-     
+export const Form = styled.form``

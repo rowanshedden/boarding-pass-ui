@@ -14,11 +14,30 @@
     "styled-components": "^5.3.6",
     "web-vitals": "^2.1.4"
   },
+  "devDependencies": {
+    "@commitlint/cli": "^8.3.5",
+    "@commitlint/config-conventional": "^8.3.4",
+    "husky": "^4.2.5",
+    "prettier": "2.0.5"
+  },
   "scripts": {
     "start": "react-scripts start",
+    "style-watch": "onchange 'src/*.js' 'src/**/*.js' -- prettier --write {{changed}}",
+    "style-check": "prettier --check 'src/**/*.js'",
+    "style-format": "prettier --write .",
     "build": "react-scripts build",
+    "postbuild": "cp LICENSE* build && cp README.md build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
+  },
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
+  },
+  "prettier": {
+    "semi": false,
+    "singleQuote": true
   },
   "eslintConfig": {
     "extends": [
