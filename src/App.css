@@ -297,9 +297,8 @@ select {
 .chip-photo {
   position: absolute;
   top: 160px;
-  margin-left: 15px;
-  width: 305px;
-  height: 305px;
+  left: 54px;
+  max-width: 260px;
   object-fit: cover;
 }
 
