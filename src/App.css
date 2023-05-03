@@ -202,96 +202,108 @@ select {
 
 .passport-div {
   position: relative;
+  margin: 0 auto;
+  /* min-height: 256px; */
+  height: 51.3vmin;
+  max-height: 513px; 
+  
+  /* min-width: 360px; */
+  width: 72vmin;
+  max-width: 720px;
+  
+  font-size: 1.8vmin;
+  text-transform: uppercase;
   background-image: url('./assets/utopia-passport.jpg');
   background-repeat: no-repeat;
-  height: 670px;
-  width: 100%;
-  font-size: 20px;
-  text-transform: uppercase;
+  background-size: cover;
 }
 
 .type {
   position: absolute;
-  line-height: 250px;
-  margin-left: 345px;
+  top: 16.75%;
+  left: 37.75%;
 }
 
 .country-code {
   position: absolute;
-  line-height: 250px;
-  margin-left: 455px;
+  top: 16.75%;
+  left: 50%;
 }
 
 .passport-number {
   position: absolute;
-  line-height: 250px;
-  margin-left: 660px;
+  top: 16.75%;
+  left: 72%;
+  overflow: hidden;
+  max-width: 26.25%;
 }
 
 .surname {
   position: absolute;
-  line-height: 350px;
-  margin-left: 345px;
+  top: 24.5%;
+  left: 37.75%;
 }
 
 .given-names {
   position: absolute;
-  line-height: 440px;
-  margin-left: 345px;
+  top: 31%;
+  left: 37.75%;
 }
 
 .nationality {
   position: absolute;
-  line-height: 535px;
-  margin-left: 345px;
+  top: 38%;
+  left: 37.75%;
 }
 
 .birth-date {
   position: absolute;
-  line-height: 640px;
-  margin-left: 345px;
+  top: 45.5%;
+  left: 37.75%;
 }
 
 .personal-number {
   position: absolute;
-  line-height: 640px;
-  margin-left: 660px;
+  top: 46%;
+  left: 72%;
+  overflow: hidden;
+  max-width: 26.25%;
 }
 
 .sex {
   position: absolute;
-  line-height: 730px;
-  margin-left: 345px;
+  top: 53%;
+  left: 37.75%;
 }
 
 .birth-place {
   position: absolute;
-  line-height: 730px;
-  margin-left: 455px;
+  top: 53%;
+  left: 50%;
 }
 
 .issue-date {
   position: absolute;
-  line-height: 833px;
-  margin-left: 345px;
+  top: 60.5%;
+  left: 37.75%;
 }
 
 .authority {
   position: absolute;
-  line-height: 833px;
-  margin-left: 660px;
+  top: 60.5%;
+  left: 72%;
 }
 
 .expiry-date {
   position: absolute;
-  line-height: 913px;
-  margin-left: 345px;
+  top: 67.25%;
+  left: 37.75%;
 }
 
 .holder-signature {
   position: absolute;
-  line-height: 913px;
-  margin-left: 660px;
+  top: 67.25%;
+  left: 72%;
 }
 
 .chip-photo {
