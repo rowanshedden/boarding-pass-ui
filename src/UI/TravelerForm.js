@@ -170,7 +170,8 @@ function TravelerForm() {
       url: `/api/credentials/`,
       data: {
         credentialData: credentialData,
-        connectionId: verification.connectionId,
+        contact_id: '',
+        invitation_id: invitation.invitation_id,
       },
     })
       .then(() => {
@@ -336,25 +337,25 @@ function TravelerForm() {
               {attributes['document-type'] ? attributes['document-type'] : ''}
             </span>
             <span className="country-code">ARU</span>
-            <span className="passport-number"> 
+            <span className="passport-number">
               {attributes['document-number']
                 ? attributes['document-number']
                 : ''}
             </span>
-            <span className="surname"> 
+            <span className="surname">
               {attributes['family-name'] ? attributes['family-name'] : ''}
             </span>
-            <span className="given-names"> 
+            <span className="given-names">
               {attributes['given-names'] ? attributes['given-names'] : ''}
             </span>
-            <span className="nationality"> 
+            <span className="nationality">
               {attributes.nationality ? attributes.nationality : ''}
             </span>
-            <span className="birth-date"> 
+            <span className="birth-date">
               {attributes['date-of-birth'] ? attributes['date-of-birth'] : ''}
             </span>
             <span className="personal-number">52115341</span>
-            <span className="sex"> 
+            <span className="sex">
               {attributes.gender ? attributes.gender : ''}
             </span>
             <span className="birth-place">Zenith</span>
