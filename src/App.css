@@ -213,104 +213,90 @@ select {
   
   font-size: 1.8vmin;
   text-transform: uppercase;
-  background-image: url('./assets/utopia-passport.jpg');
+  background-image: url('./assets/atlantis-passport.png');
   background-repeat: no-repeat;
   background-size: cover;
 }
 
 .type {
   position: absolute;
-  top: 16.75%;
-  left: 37.75%;
+  top: 18%;
+  left: 35.75%;
 }
 
 .country-code {
   position: absolute;
-  top: 16.75%;
-  left: 50%;
+  top: 18%;
+  left: 48.25%;
 }
 
 .passport-number {
   position: absolute;
-  top: 16.75%;
-  left: 72%;
+  top: 18%;
+  left: 70%;
   overflow: hidden;
   max-width: 26.25%;
 }
 
 .surname {
   position: absolute;
-  top: 24.5%;
-  left: 37.75%;
+  top: 27.5%;
+  left: 35.75%;
 }
 
 .given-names {
   position: absolute;
-  top: 31%;
-  left: 37.75%;
+  top: 34.5%;
+  left: 35.75%;
 }
 
 .nationality {
   position: absolute;
-  top: 38%;
-  left: 37.75%;
+  top: 42.5%;
+  left: 35.75%;
 }
 
 .birth-date {
   position: absolute;
-  top: 45.5%;
-  left: 37.75%;
-}
-
-.personal-number {
-  position: absolute;
-  top: 46%;
-  left: 72%;
-  overflow: hidden;
-  max-width: 26.25%;
+  top: 50%;
+  left: 35.75%;
 }
 
 .sex {
   position: absolute;
-  top: 53%;
-  left: 37.75%;
+  left: 70%;
+  top: 57.5%;
 }
 
 .birth-place {
   position: absolute;
-  top: 53%;
-  left: 50%;
+  top: 57.5%;
+  left: 35.75%;
 }
 
 .issue-date {
   position: absolute;
-  top: 60.5%;
-  left: 37.75%;
+  top: 65%;
+  left: 35.75%;
 }
 
 .authority {
   position: absolute;
-  top: 60.5%;
-  left: 72%;
+  top: 65%;
+  left: 70%;
 }
 
 .expiry-date {
   position: absolute;
-  top: 67.25%;
-  left: 37.75%;
-}
-
-.holder-signature {
-  position: absolute;
-  top: 67.25%;
-  left: 72%;
+  top: 72.25%;
+  left: 35.75%;
 }
 
 .chip-photo {
   position: absolute;
-  top: 160px;
-  left: 54px;
-  max-width: 260px;
+  top: 25%;
+  left: 30px;
+  max-width: 27%;
   object-fit: cover;
 }
 
