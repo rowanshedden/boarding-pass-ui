@@ -236,7 +236,7 @@ function TravelerForm() {
           ticket_designated_carrier: 'Indicio Air',
           ticket_operating_carrier: 'SITA Air',
           ticket_flight_number: 'XS155',
-          ticket_class: 'First Class',
+          ticket_class: 'Economy',
           ticket_seat_number: '55A',
           ticket_exit_row: 'No',
           ticket_origin: 'LHR',
@@ -354,7 +354,6 @@ function TravelerForm() {
             <span className="birth-date">
               {attributes['date-of-birth'] ? attributes['date-of-birth'] : ''}
             </span>
-            <span className="personal-number">52115341</span>
             <span className="sex">
               {attributes.gender ? attributes.gender : ''}
             </span>
@@ -370,7 +369,6 @@ function TravelerForm() {
             <span className="expiry-date">
               {attributes['expiry-date'] ? attributes['expiry-date'] : ''}
             </span>
-            <span className="holder-signature">Signature</span>
           </div>
         </div>
       </div>
@@ -449,10 +447,6 @@ function TravelerForm() {
                 </DataValue>
               </InputBox>
               <InputBox>
-                <ModalLabel>Personal Number</ModalLabel>
-                <DataValue>z e 184226 b</DataValue>
-              </InputBox>
-              <InputBox>
                 <ModalLabel>Sex</ModalLabel>
                 <DataValue>
                   {attributes.gender ? attributes.gender : ''}
@@ -481,10 +475,6 @@ function TravelerForm() {
                 <DataValue>
                   {attributes['expiry-date'] ? attributes['expiry-date'] : ''}
                 </DataValue>
-              </InputBox>
-              <InputBox>
-                <ModalLabel>Signature</ModalLabel>
-                <DataValue>Signature</DataValue>
               </InputBox>
             </Form>
           </FormContainer>
