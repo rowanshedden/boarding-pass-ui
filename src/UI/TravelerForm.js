@@ -49,29 +49,36 @@ function TravelerForm() {
   const effectRan = useRef()
   const newForm = useRef()
 
-  // invitation
-  useEffect(() => {
-    //(AmmonBurgi) Prevent from triggering twice. See React strict mode.
-    if (effectRan.current === true) {
-      Axios({
-        method: 'POST',
-        url: `/api/invitations`,
+  const requestInvitation = () => {
+    Axios({
+      method: 'POST',
+      url: `/api/invitations`,
+    })
+      .then((res) => {
+        console.log('Invitation:', res.data)
+
+        setInvitation(res.data)
       })
-        .then((res) => {
-          console.log('Invitation:', res.data)
+      .catch((err) => {
+        console.log('Error: ', err)
+        if (err.response.data.message) {
+          setErrMessage(err.response.data.message)
+        }
+      })
+  }
 
-          setInvitation(res.data)
-        })
-        .catch((err) => {
-          console.log('Error: ', err)
-          if (err.response.data.message) {
-            setErrMessage(err.response.data.message)
-          }
-        })
-    }
+  useEffect(() => {
+    //(AmmonBurgi) Prevent from triggering twice in development. See React strict mode.
+    if (process.env.NODE_ENV === 'development') {
+      if (effectRan.current === true) {
+        requestInvitation()
+      }
 
-    return () => {
-      effectRan.current = true
+      return () => {
+        effectRan.current = true
+      }
+    } else {
+      requestInvitation()
     }
   }, [])
 
