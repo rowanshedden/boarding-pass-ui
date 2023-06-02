@@ -37,7 +37,8 @@ const QR = styled(QRCode)`
 `
 
 function TravelerForm() {
-  const [invitation, setInvitation] = useState('')
+  const [invitation, setInvitation] = useState({})
+  const [connectionConfirmed, setConnectionConfirmed] = useState(false)
   const [verificationComplete, setVerificationComplete] = useState(false)
   const [formSubmitted, setFormSubmitted] = useState(false)
   const [verification, setVerification] = useState({})
@@ -49,22 +50,34 @@ function TravelerForm() {
   const effectRan = useRef()
   const newForm = useRef()
 
-  const requestInvitation = () => {
-    Axios({
-      method: 'POST',
-      url: `/api/invitations`,
-    })
-      .then((res) => {
-        console.log('Invitation:', res.data)
+  const conController = new AbortController()
+  const verController = new AbortController()
 
-        setInvitation(res.data)
+  const handleError = (error) => {
+    if (error.response && error.response.data && error.response.data.message) {
+      setErrMessage(error.response.data.message)
+    } else if (error.name === 'CanceledError') {
+      console.log('Request canceled!')
+    } else {
+      console.error('Error: ', error)
+    }
+  }
+
+  const requestInvitation = () => {
+    if (Object.keys(invitation).length === 0) {
+      Axios({
+        method: 'POST',
+        url: `/api/invitations`,
       })
-      .catch((err) => {
-        console.log('Error: ', err)
-        if (err.response.data.message) {
-          setErrMessage(err.response.data.message)
-        }
-      })
+        .then((res) => {
+          console.log('Invitation:', res.data)
+
+          setInvitation(res.data)
+        })
+        .catch((err) => {
+          handleError(err)
+        })
+    }
   }
 
   useEffect(() => {
@@ -80,10 +93,32 @@ function TravelerForm() {
     } else {
       requestInvitation()
     }
-  }, [])
+  }, [invitation])
 
   useEffect(() => {
-    if (invitation.invitation_id && !verificationComplete) {
+    if (invitation.connection_id && !connectionConfirmed) {
+      Axios({
+        method: 'GET',
+        url: `/api/connections/${invitation.connection_id}`,
+        timeout: 1000 * 60 * 35,
+        signal: conController.signal,
+      })
+        .then(() => {
+          console.log('Connection confirmed!')
+          setConnectionConfirmed(true)
+        })
+        .catch((err) => {
+          handleError(err)
+        })
+    }
+  }, [invitation, connectionConfirmed])
+
+  useEffect(() => {
+    if (
+      invitation.invitation_id &&
+      connectionConfirmed &&
+      !verificationComplete
+    ) {
       Axios({
         method: 'POST',
         url: `/api/verifications`,
@@ -93,6 +128,7 @@ function TravelerForm() {
           invitation_id: invitation.invitation_id,
         },
         timeout: 1000 * 60 * 35,
+        signal: verController.signal,
       })
         .then((verRes) => {
           const verificationRecords = verRes.data.verificationRecords
@@ -125,13 +161,21 @@ function TravelerForm() {
           })
         })
         .catch((err) => {
-          console.error('Error: ', err)
-          if (err.response.data.message) {
-            setErrMessage(err.response.data.message)
-          }
+          handleError(err)
         })
     }
-  }, [invitation, verificationComplete])
+  }, [invitation, connectionConfirmed, verificationComplete])
+
+  const resetToInvitation = () => {
+    //(AmmonBurgi) Abort any pending requests, to avoid invalid state changes
+    conController.abort()
+    verController.abort()
+
+    setInvitation('')
+    setConnectionConfirmed(false)
+    setVerificationComplete(false)
+    setToggleForm(false)
+  }
 
   const handleSubmit = (e) => {
     e.preventDefault()
@@ -185,10 +229,7 @@ function TravelerForm() {
         setFormSubmitted(true)
       })
       .catch((err) => {
-        console.error('Error: ', err)
-        if (err.response.data.message) {
-          setErrMessage(err.response.data.message)
-        }
+        handleError(err)
       })
   }
 
@@ -868,16 +909,63 @@ function TravelerForm() {
     </div>
   )
 
+  const verificationDisplay = (
+    <div>
+      <div className="plane-row">
+        <div className="two-third-column">
+          <div className="title-text">
+            Welcome to the Boarding <br /> Pass Advanced Check-In
+          </div>
+          <div className="title-explain-text">
+            Enjoy a seamless boarding pass check-in <br />
+            process that eliminates all time waiting in line
+          </div>
+        </div>
+        <div className="one-third-column"></div>
+      </div>
+      <div className="bar-row">
+        <span className="bold-bar-text">Download and Passport Scan:</span>
+        <span className="bar-text">
+          Travelers must have already downloaded the traveler mobile application
+          onto their mobile device and received a DTC passport and Trusted
+          Traveler&nbsp;credential
+        </span>
+      </div>
+      <div className="content-row">
+        <div className="one-third-column">
+          <div className="content-text">
+            The connection is being processed. Credentials must be presented and
+            verified before proceeding:
+          </div>
+        </div>
+        <div className="one-third-column">
+          <div className="loader-wrapper">
+            <span className="loader"></span>
+          </div>
+        </div>
+        <div className="one-third-position">
+          <button onClick={() => resetToInvitation()} className="reset-btn">
+            Go back
+          </button>
+        </div>
+      </div>
+    </div>
+  )
+
   return (
     <div>
       {!errMessage ? (
-        invitation && invitation.invitation_url && verificationComplete ? (
-          !toggleForm ? (
-            passportDisplay
-          ) : !formSubmitted ? (
-            formDisplay
+        invitation && invitation.invitation_url && connectionConfirmed ? (
+          verificationComplete ? (
+            !toggleForm ? (
+              passportDisplay
+            ) : !formSubmitted ? (
+              formDisplay
+            ) : (
+              successDisplay
+            )
           ) : (
-            successDisplay
+            verificationDisplay
           )
         ) : (
           invitationDisplay
