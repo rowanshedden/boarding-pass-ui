@@ -55,11 +55,13 @@ function TravelerForm() {
 
   const handleError = (error) => {
     if (error.response && error.response.data && error.response.data.message) {
+      console.error('Error: ', error.response.data.message)
       setErrMessage(error.response.data.message)
     } else if (error.name === 'CanceledError') {
       console.log('Request canceled!')
     } else {
       console.error('Error: ', error)
+      setErrMessage('Internal Server Error. Please try again later.')
     }
   }
 
@@ -100,7 +102,7 @@ function TravelerForm() {
       Axios({
         method: 'GET',
         url: `/api/connections/${invitation.connection_id}`,
-        timeout: 1000 * 60 * 35,
+        timeout: 1000 * 60 * 63,
         signal: conController.signal,
       })
         .then(() => {
@@ -127,7 +129,7 @@ function TravelerForm() {
           contact_id: invitation.contact_id,
           invitation_id: invitation.invitation_id,
         },
-        timeout: 1000 * 60 * 35,
+        timeout: 1000 * 60 * 63,
         signal: verController.signal,
       })
         .then((verRes) => {
